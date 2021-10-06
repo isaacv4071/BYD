@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="./css/main.css"/>
+</head>
+<body class="dashboard">
+    <div class="menu-collapsed" id="sidemenu">
+        <!--HEADER -->
+        <div id="header">
+            <div id="title"><span>BYD</span></div>
+            <div id="menu-btn">
+                <div class="btn-hamburger"></div>
+                <div class="btn-hamburger"></div>
+                <div class="btn-hamburger"></div>
+            </div>
+        </div>
+        <!--PROFILE-->
+        <div id="profile">
+            <div id="photo"><img src="https://i.ibb.co/TT4CwBP/perfil.jpg" alt="perfil" border="0"></div>
+            <div id="name"><span>Username</span></div>
+        </div>
+        <!--ITEMS-->
+        <div id="menu-items">
+            <div class="item">
+                <a href="#">
+                    <div class="icon"><i class="bi bi-people"></i></div>
+                    <div class="title"><span>Usuarios</span></div>
+                </a>
+            </div>
+            <div class="item">
+                <a href="#">
+                    <div class="icon"><i class="bi bi-truck"></i></div>
+                    <div class="title"><span>Proveedores</span></div>
+                </a>
+            </div>
+            <div class="item">
+                <a href="#">
+                    <div class="icon"><i class="bi bi-box-seam"></i></div>
+                    <div class="title"><span>Productos</span></div>
+                </a>
+            </div>
+            <div class="item">
+                <a href="#">
+                    <div class="icon"><i class="bi bi-clipboard-data"></i></div>
+                    <div class="title"><span>Inventario</span></div>
+                </a>
+            </div>
+            <div class="item" id="topline">
+                <a href="#">
+                    <div class="icon"><i class="bi bi-door-open"></i></i></div>
+                    <div class="title"><span>Salir</span></div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-container">
+        Contenido a implementar
+    </div>
+
+    <script>
+        const btn = document.querySelector('#menu-btn');
+        const menu = document.querySelector('#sidemenu');
+        btn.addEventListener('click', e => {
+            menu.classList.toggle("menu-expanded");
+            menu.classList.toggle("menu-collapsed");
+
+            document.querySelector('body').classList.toggle('body-expanded');
+        });
+    </script>
+</body>
+</html>

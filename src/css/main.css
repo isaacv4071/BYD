@@ -1,0 +1,182 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/* Inicio de sesión */
+.login{
+    background-color: #085373;
+    color: #0D2935;
+    font-family: 'Roboto', sans-serif;
+}
+.login h5{
+    margin-top: 10px;
+}
+.login i {
+    font-size: 80px;
+}
+.login input{
+    margin-top: 10px;
+    background-color: #F9F3EF;  
+    border-radius: 10px;
+}
+.login .card {
+    width: 20rem; 
+    border-radius: 15px;
+    background-color: #F9F3EF;
+}
+.login #btnLogin{
+    margin-top: 10px;
+    background-color: #0D2935;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+/* dashboard */
+:root{
+    --width: 300px;
+    --padding: 10px;
+    --bgcolor: #0D2935;
+    --hovercolor: #085373;
+    --width-collapsed: 50px;
+}
+.dashboard {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    margin-left: var(--width-collapsed);
+}
+.body-expanded{
+    margin-left: var(--width);
+}
+#sidemenu{
+    background-color: var(--bgcolor);
+    color: white;
+    position: fixed;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+#sidemenu a{
+    color: white;
+    text-decoration: none;
+}
+/* HEADER */
+#sidemenu #header{
+    box-sizing: border-box;
+    background-color: var(--hovercolor);
+}
+#sidemenu #header #title{
+    box-sizing: border-box;
+    overflow: hidden;
+}
+#sidemenu #header #title, 
+#sidemenu #header #menu-btn{
+    vertical-align: middle;
+}
+#sidemenu #header #menu-btn{
+    display: inline-block;
+}
+#sidemenu #header #menu-btn{
+    cursor: pointer;
+    padding: 10px;
+    width: var(--width-collapsed);
+    box-sizing: border-box;
+}
+#sidemenu #header #menu-btn:hover{
+    background-color: var(--hovercolor);
+}
+#sidemenu #header #menu-btn .btn-hamburger{
+    background-color: white;
+    width: 100%;
+    height: 2px;
+    margin: 5px 0;
+}
+/* PROFILE */
+#sidemenu #profile{
+    padding: var(--padding) 0;
+    text-align: center;
+}
+#sidemenu #profile #photo{
+    box-sizing: border-box;
+    padding: var(--padding);
+    margin: 0 auto;
+}
+#sidemenu #profile #photo img{
+    border-radius: 50%;
+    width: 60%;
+}
+#sidemenu #profile #photo, #sidemenu #profile #name{
+    font-size: 24px;
+    padding: var(--padding) 0;
+    overflow: hidden;
+}
+/* ITEMS */
+#sidemenu #menu-items{
+    overflow: hidden;
+}
+#sidemenu #menu-items .item{
+    width: var(--width);
+}
+#sidemenu #menu-items .item .icon{
+    display: inline-block;
+}
+#sidemenu #menu-items .item .icon,
+#sidemenu #menu-items .item .title{
+    font-size: 16px;
+    vertical-align: middle;
+    overflow: hidden;
+    display: inline-block;
+}
+#sidemenu #menu-items .item a{
+    display: block;
+}
+#sidemenu #menu-items .item a:hover{
+    background-color: var(--hovercolor);
+}
+#sidemenu #menu-items .item .icon{
+    box-sizing: border-box;
+    padding: var(--padding);
+    width: var(--width-collapsed);
+}
+#sidemenu #menu-items .item .icon i{
+    font-size: 25px;
+}
+#sidemenu #menu-items .item .title{
+    padding: var(--padding) 0;
+}
+.menu-expanded{
+    width: var(--width);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0, 5);
+}
+.menu-expanded #header #title{
+    display: inline-block;
+    width: calc(100% - 50px);
+    margin-right: -5px;
+    padding: var(--padding);
+}
+.menu-expanded #header #title span{
+    width: calc(var(--width) - var(--width-collapsed) - 5px);
+    overflow: hidden;
+    display: inline-block;
+}
+.menu-expanded #profile #photo{
+    width: 200px;
+}
+.menu-expanded #profile #name{
+    width: 100%;
+}
+.menu-expanded #topline{
+    margin-top: 120px;
+}
+.menu-collapsed{
+    width: var(--width-collapsed);
+}
+.menu-collapsed #header #title,
+.menu-collapsed #profile #name{
+    display: none;
+}
+.menu-collapsed .item{
+    width: 100px;
+}
+.menu-collapsed #topline{
+    margin-top: 260px;
+}
