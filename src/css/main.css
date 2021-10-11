@@ -1,14 +1,6 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-
-.title {
-  color: #0d2935;
-  font-family: "Roboto", sans-serif;
-  padding: 0 80px 0 80px;
-}
-
-
 /* Inicio de sesión */
 .login{
     background-color: #085373;
@@ -187,4 +179,14 @@
 }
 .menu-collapsed #topline{
     margin-top: 260px;
+}
+
+/* Add user */
+
+#main-container .navbar{
+    background-color: #F9F3EF;
+    height: 50px;
+}
+#title-adduser{
+    margin-top: 10px;
 }
