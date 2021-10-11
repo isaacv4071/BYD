@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="./css/main.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}" media="screen" />
 </head>
+
 <body class="dashboard">
     <div class="menu-collapsed" id="sidemenu">
         <!--HEADER -->
@@ -59,18 +62,15 @@
     </div>
 
     <div id="main-container">
-        Contenido a implementar
+        <nav class="navbar">
+            <div class="container-fluid">
+                <span class="navbar-brand mb-0 h1"></span>
+            </div>
+        </nav>
+        {% block content %}
+        {% endblock %}
     </div>
 
-    <script>
-        const btn = document.querySelector('#menu-btn');
-        const menu = document.querySelector('#sidemenu');
-        btn.addEventListener('click', e => {
-            menu.classList.toggle("menu-expanded");
-            menu.classList.toggle("menu-collapsed");
-
-            document.querySelector('body').classList.toggle('body-expanded');
-        });
-    </script>
+    <script src={{ url_for('static', filename='js/main.js') }}></script>
 </body>
 </html>

@@ -165,7 +165,7 @@
     width: 100%;
 }
 .menu-expanded #topline{
-    margin-top: 120px;
+    margin-top: 110px;
 }
 .menu-collapsed{
     width: var(--width-collapsed);
@@ -178,11 +178,10 @@
     width: 100px;
 }
 .menu-collapsed #topline{
-    margin-top: 260px;
+    margin-top: 240px;
 }
 
 /* Add user */
-
 #main-container .navbar{
     background-color: #F9F3EF;
     height: 50px;
