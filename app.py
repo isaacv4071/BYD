@@ -9,6 +9,11 @@ app.secret_key=os.urandom(24)
 def login():
     return render_template('index.html')
 
+@app.route("/producto",methods=['GET'])
+def product():
+    return render_template('product/producto.html')
+
+
 @app.route("/inicio", methods=['POST'])
 def adduser():
     return render_template('user/addUserPage.html')

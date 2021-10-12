@@ -189,3 +189,28 @@
 #title-adduser{
     margin-top: 10px;
 }
+
+/* Product_List */
+.container #btn_space{
+    margin-top: 300px;
+}
+
+.container #btn_space .btn{
+    background-color: #085373;
+    color: #fff;
+    border-radius: 20px;
+}
+
+.container #btn_space .btn i{
+    margin-left: 5px;
+}
+
+.container h2{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.cabecera{
+    background-color: #0D2935;
+    color: #fff;
+}

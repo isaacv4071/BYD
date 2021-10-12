@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>PRODUCTOS</h2>
+        <div>
+            <table class="table">
+                <thead class= "cabecera">
+                    <tr>
+                        <th>Código</th>
+                        <th>Producto</th>
+                        <th>Proveedor</th>
+                      </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>728</td>
+                        <td>TANG DM</td>
+                        <td>Emilio Ballesros</td>
+                      </tr>
+                      <tr>
+                        <td>496</td>
+                        <td>YUAN EV</td>
+                        <td>DN S.A.S</td>
+                      </tr>
+                      <tr>
+                        <td>245</td>
+                        <td>e3 HB</td>
+                        <td>ImporBrake</td>
+                      </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="btn_space">
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button class="btn me-md-2" type="button">Generar Lista</button>
+                <button class="btn" type="button">Adicionar Producto<i class="bi bi-box"></i></button>
+              </div>
+        </div>
+</div>
+{% endblock %}
