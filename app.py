@@ -5,27 +5,32 @@ import os
 app = Flask(__name__)
 app.secret_key=os.urandom(24)
 
+# ruta para renderizar el login
 @app.route("/")
 def login():
     return render_template('index.html')
 
+#ruta para renderizar la pagina principal de producto
 @app.route("/producto",methods=['GET'])
 def product():
     return render_template('product/producto.html')
 
+#ruta para renderizar la pagina principal de User
 @app.route("/user", methods=['GET'])
 def adduser():
-    """ validaciones del login """
     return render_template('user/addUserPage.html')
 
+#ruta para inicio de sesión y validacion de credenciales
 @app.route("/inicio", methods=['POST'])
 def inicio():
     return render_template('inventory/inventory.html')
 
+#ruta para renderizar la pagina principal de inventario
 @app.route("/inventory", methods=['GET'])
 def inventory():
     return render_template('inventory/inventory.html')
 
+#ruta para renderizar la pagina principal de Proveedores
 @app.route("/provider", methods=['GET'])
 def provider():
     return render_template('provider/provider.html')

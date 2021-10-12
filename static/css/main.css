@@ -161,6 +161,9 @@
 .menu-expanded #profile #photo{
     width: 200px;
 }
+.menu-expanded #profile #photo img{
+    border: 5px solid #C4BF90;
+}
 .menu-expanded #profile #name{
     width: 100%;
 }
@@ -213,4 +216,20 @@
 .cabecera{
     background-color: #0D2935;
     color: #fff;
+}
+
+/* Inventario */
+
+#contenedor-inventario .form-inventario .row{
+    margin-top: 20px;
+    justify-content: center;
+}
+#contenedor-inventario .form-inventario .row .col-auto{
+    align-content: space-between;
+}
+#contenedor-inventario .form-inventario .d-grid .btn{
+    margin-top: 30px;
+    background-color: #0D2935;
+    color: white;
+    border-radius: 20px;
 }
