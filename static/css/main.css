@@ -165,7 +165,7 @@
     width: 100%;
 }
 .menu-expanded #topline{
-    margin-top: 110px;
+    margin-top: 80px;
 }
 .menu-collapsed{
     width: var(--width-collapsed);
@@ -178,7 +178,7 @@
     width: 100px;
 }
 .menu-collapsed #topline{
-    margin-top: 240px;
+    margin-top: 220px;
 }
 
 /* Add user */

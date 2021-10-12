@@ -13,10 +13,22 @@ def login():
 def product():
     return render_template('product/producto.html')
 
+@app.route("/user", methods=['GET'])
+def adduser():
+    """ validaciones del login """
+    return render_template('user/addUserPage.html')
 
 @app.route("/inicio", methods=['POST'])
-def adduser():
-    return render_template('user/addUserPage.html')
+def inicio():
+    return render_template('inventory/inventory.html')
+
+@app.route("/inventory", methods=['GET'])
+def inventory():
+    return render_template('inventory/inventory.html')
+
+@app.route("/provider", methods=['GET'])
+def provider():
+    return render_template('provider/provider.html')
 
 if __name__ == "__main__":
     app.run(debug=True, port=8000)
