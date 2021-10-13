@@ -35,5 +35,11 @@ def inventory():
 def provider():
     return render_template('provider/provider.html')
 
+#ruta para agregar proveedores
+@app.route("/agregarproveedor", methods=['GET'])
+def addProvider():
+    return render_template('provider/addprovider.html')
+
+
 if __name__ == "__main__":
     app.run(debug=True, port=8000)

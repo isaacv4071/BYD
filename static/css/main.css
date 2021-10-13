@@ -195,7 +195,7 @@
 
 /* Product_List */
 .container #btn_space{
-    margin-top: 300px;
+    margin-top: 220px;
 }
 
 .container #btn_space .btn{
@@ -212,14 +212,25 @@
     margin-top: 20px;
     margin-bottom: 20px;
 }
+.container #form_buscar_prod form{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.container #form_buscar_prod form button{
+    background-color: #C4BF90;
+} 
+.container #form_buscar_prod .btn{
+    border-color: #0D2935;
+    color: #0D2935;
+}
 
+/* esta clase es para las tablas */
 .cabecera{
     background-color: #0D2935;
     color: #fff;
 }
 
 /* Inventario */
-
 #contenedor-inventario .form-inventario .row{
     margin-top: 20px;
     justify-content: center;
@@ -232,4 +243,48 @@
     background-color: #0D2935;
     color: white;
     border-radius: 20px;
+}
+#contenedor-inventario .container .table{
+    margin-top: 30px;
+}
+#contenedor-inventario .container .table tbody{
+    color:#0D2935;
+}
+
+/* proveedores */
+.container #btn-space{
+    margin-top: 200px;
+}
+.container #btn-space .btn{
+    background-color: #085373;
+    color: #fff;
+    border-radius: 20px;
+}
+.container #btn-space .btn i{
+    margin-left: 5px;
+    font-size: 20px;
+}
+
+.container .table tbody tr td i{
+    font-size: 20px;
+}
+
+/* agregar proveedor */
+.container #btn-space-addProvider{
+    margin-top: 220px;
+}
+.container #btn-space-addProvider .btn{
+border-radius: 20px;
+}
+.container #btn-space-addProvider #btnCancelar{
+    border-color: #0D2935;
+    color: #0D2935;
+}
+.container #btn-space-addProvider #btnAgregar{
+    background-color: #085373;
+    color: #fff;
+}
+.container #btn-space-addProvider #btnAgregar i{
+    margin-left: 5px;
+    font-size: 18px;
 }

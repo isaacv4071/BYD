@@ -7,21 +7,55 @@
         <div id="contenedor-inventario">
             <h5 class="text-center">Registrar Venta</h5>
             <div class="form-inventario">
-                <div class="row g-2">
-                    <div class="col-auto">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Productos</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
+                <form method="post" action="/inicio" enctype="multipart/form-data">
+                    <div class="row g-2">
+                        <div class="col-auto">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Productos</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                        <div class="col-auto">
+                            <input class="form-control" type="number" min="1" max="100" step="1">
+                        </div>
                     </div>
-                    <div class="col-auto">
-                        <input class="form-control" type="number" min="1" max="100" step="1">
+                    <div class="d-grid col-3 mx-auto">
+                        <button class="btn" type="submit">Vender</button>
                     </div>
-                </div>
-                <div class="d-grid col-3 mx-auto">
-                    <button class="btn" type="button">Vender</button>
+                </form>
+                <div class="container">
+                    <table class="table text-center">
+                        <thead class="cabecera">
+                          <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Producto</th>
+                            <th scope="col">Vendido</th>
+                            <th scope="col"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>3</td>
+                            <td><i class="bi bi-eraser-fill"></i></td>
+                          </tr>
+                          <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>4</td>
+                            <td><i class="bi bi-eraser-fill"></i></i></td>
+                          </tr>
+                          <tr>
+                            <th scope="row">3</th>
+                            <td>@twitter</td>
+                            <td>9</td>
+                            <td><i class="bi bi-eraser-fill"></i></i></td>
+                          </tr>
+                        </tbody>
+                      </table>
                 </div>
             </div>
         </div>

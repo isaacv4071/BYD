@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <div>
+            <h2>AGREGAR PROVEEDOR</h2>
+        </div>
+        <div>
+            <form method="post" action="/addproveedor" enctype="multipart/form-data">
+                  <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Nombre</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control">
+                    </div>
+                  </div>
+                  <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Telefono</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control">
+                    </div>
+                  </div>
+                  <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control">
+                    </div>
+                  </div>
+                  <div id="btn-space-addProvider">
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                      <a href="{{url_for('provider')}}" id="btnCancelar"class="btn me-md-2">Cancelar</a>
+                      <button id="btnAgregar" class="btn" type="submit">Adicionar Proveedor<i class="bi bi-truck"></i></button>
+                    </div>
+                  </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

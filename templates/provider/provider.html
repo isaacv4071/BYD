@@ -1,5 +1,64 @@
 {% extends "base.html" %}
 
 {% block content %}
-    
+<div class="container">
+    <div class="d-grid gap-2 d-md-flex">
+        <div><h2>PROVEEDORES</h2></div>
+        <div id="form_buscar_prod" class="ms-auto">
+          <form class="d-flex" method="post" action="/buscarproveedor" enctype="multipart/form-data">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn" type="submit"><i class="bi bi-search"></i></button>
+          </form>
+        </div>
+      </div>
+        <div>
+            <table class="table">
+                <thead class= "cabecera">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Contacto</th>
+                        <th></th>
+                      </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>728</td>
+                        <td>TANG DM</td>
+                        <td>Emilio Ballesros</td>
+                        <td>
+                            <button class="btn"><i class="bi bi-eye-fill"></i></button>
+                            <button class="btn"><i class="bi bi-pencil-square"></i></button>
+                            <button class="btn"><i class="bi bi-eraser-fill"></i></button>
+                          </td>
+                      </tr>
+                      <tr>
+                        <td>496</td>
+                        <td>YUAN EV</td>
+                        <td>DN S.A.S</td>
+                        <td>
+                            <button class="btn"><i class="bi bi-eye-fill"></i></button>
+                            <button class="btn"><i class="bi bi-pencil-square"></i></button>
+                            <button class="btn"><i class="bi bi-eraser-fill"></i></button>
+                          </td>
+                      </tr>
+                      <tr>
+                        <td>245</td>
+                        <td>e3 HB</td>
+                        <td>ImporBrake</td>
+                        <td>
+                            <button class="btn"><i class="bi bi-eye-fill"></i></button>
+                            <button class="btn"><i class="bi bi-pencil-square"></i></button>
+                            <button class="btn"><i class="bi bi-eraser-fill"></i></button>
+                          </td>
+                      </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="btn-space">
+            <div class="d-grid gap-1 d-md-flex justify-content-md-end">
+                <a class="btn" href="{{url_for('addProvider')}}" >Agregar Proveedor<i class="bi bi-truck"></i></a>
+              </div>
+        </div>
+</div>
 {% endblock %}
