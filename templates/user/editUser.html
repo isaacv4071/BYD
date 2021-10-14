@@ -1,203 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit User</title>
-    <link rel="stylesheet" href="./css/main.css"/>
-    <link rel="stylesheet" href="./css/estilos.css"/>
-    <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-    crossorigin="anonymous"
-  />
-  <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
-  integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
-  crossorigin="anonymous"
-  referrerpolicy="no-referrer"
-/>
-</head>
-<body class="dashboard">
-    <div class="menu-collapsed" id="sidemenu">
-        <!--HEADER -->
-        <div id="header">
-            <div id="title"><span>BYD</span></div>
-            <div id="menu-btn">
-                <div class="btn-hamburger"></div>
-                <div class="btn-hamburger"></div>
-                <div class="btn-hamburger"></div>
-            </div>
-        </div>
-        <!--PROFILE-->
-        <div id="profile">
-            <div id="photo"><img src="https://i.ibb.co/TT4CwBP/perfil.jpg" alt="perfil" border="0"></div>
-            <div id="name"><span>Username</span></div>
-        </div>
-        <!--ITEMS-->
-        <div id="menu-items">
-            <div class="item">
-                <a href="#">
-                    <div class="icon"><i class="bi bi-people"></i></div>
-                    <div class="title"><span>Usuarios</span></div>
-                </a>
-            </div>
-            <div class="item">
-                <a href="#">
-                    <div class="icon"><i class="bi bi-truck"></i></div>
-                    <div class="title"><span>Proveedores</span></div>
-                </a>
-            </div>
-            <div class="item">
-                <a href="#">
-                    <div class="icon"><i class="bi bi-box-seam"></i></div>
-                    <div class="title"><span>Productos</span></div>
-                </a>
-            </div>
-            <div class="item">
-                <a href="#">
-                    <div class="icon"><i class="bi bi-clipboard-data"></i></div>
-                    <div class="title"><span>Inventario</span></div>
-                </a>
-            </div>
-            <div class="item" id="topline">
-                <a href="#">
-                    <div class="icon"><i class="bi bi-door-open"></i></i></div>
-                    <div class="title"><span>Salir</span></div>
-                </a>
-            </div>
-        </div>
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  <div class="title">
+    <h2>EDITAR USUARIO</h2>
+  </div>
+  <form method="post" action="/editusuario" enctype="multipart/form-data">
+    <div class="row g-3 align-items-center my-3">
+      <div class="col-2">
+        <label for="FormControlInput1" class="form-label">Name</label>
+      </div>
+      <div class="col-10">
+        <input type="text" class="form-control" id="addUserName" placeholder="Jhon" value="Jhon" required/>
+      </div>
     </div>
 
-    <div id="main-container">
-        <div style="height: 50px; background-color: rgba(249, 243, 239, 1)"></div>
-    <div style="height: 30px"></div>
-    <!-- espacio en blanco -->
-
-    <div>
-      <div class="title">
-        <h1>EDIT USER</h1>
+    <div class="row g-3 align-items-center my-3">
+      <div class="col-2">
+        <label for="FormControlInput2" class="form-label">Last Name</label>
       </div>
-      <div style="margin: 10px 120px">
-        <div class="row g-3 align-items-center my-3">
-          <div class="col-2">
-            <label for="FormControlInput1" class="form-label">Name</label>
-          </div>
-          <div class="col-10">
-            <input
-              type="text"
-              class="form-control"
-              id="addUserName"
-              placeholder="Jhon"
-              value="Jhon"
-            />
-          </div>
-        </div>
+      <div class="col-10">
+        <input type="text" class="form-control" id="addUserName" placeholder="Doe" value="Doe" required/>
+      </div>
+    </div>
 
-        <div class="row g-3 align-items-center my-3">
-          <div class="col-2">
-            <label for="FormControlInput2" class="form-label">Last Name</label>
-          </div>
-          <div class="col-10">
-            <input
-              type="text"
-              class="form-control"
-              id="addUserName"
-              placeholder="Doe"
-              value="Doe"
-            />
-          </div>
-        </div>
+    <div class="row g-3 align-items-center my-3">
+      <div class="col-2">
+        <label for="FormControlInput3" class="form-label">Email</label>
+      </div>
+      <div class="col-10">
+        <input type="email" class="form-control" id="addUserName" placeholder="usermail@domain.com"
+          value="JhonDoe99@mail.com" required/>
+      </div>
+    </div>
 
-        <div class="row g-3 align-items-center my-3">
-          <div class="col-2">
-            <label for="FormControlInput3" class="form-label">Email</label>
-          </div>
-          <div class="col-10">
-            <input
-              type="email"
-              class="form-control"
-              id="addUserName"
-              placeholder="usermail@domain.com"
-              value = "JhonDoe99@mail.com"
-            />
-          </div>
-        </div>
-
-
-        <div class="row g-3 align-items-center my-3">
-          <div class="col-2">
-            <label for="FormControlInput4" class="form-label">Password</label>
-          </div>
-          <div class="col-10">
-            <input
-              type="password"
-              class="form-control"
-              id="addUserName"
-              placeholder="*********"
-              value="thepassword"
-            />
-            <div id="FormControlInput5" class="form-text" >
-              Minimun length 8, include almost one symbol
-            </div>
-          </div>
-        </div>
-
-        <div class="row g-3 align-items-center my-3">
-          <div class="col-2">
-            <label for="FormControlInput4" class="form-label">Rol</label>
-          </div>
-          <div class="col-10">
-            <select
-              class="form-select form-select-sm"
-              aria-label=".form-select-sm example"
-            >
-              <option selected value="1">SuperAdmin</option>
-              <option value="2">Admin</option>
-              <option value="3">End-User</option>
-            </select>
-          </div>
-        </div>
-        <div class="row align-content-end ">
-          <div class="col-6"></div> <!--espacio lado izquierdo-->
-          <div class="col-auto">
-            <button type="button" class="btn btn-outline-primary rounded-pill btn-lg">
-              <spam
-                style="
-                  color: rgba(8, 83, 115, 1);
-                  border-color: rgba(8, 83, 115, 1);
-                  padding: 8px 32px
-                "
-                >Cancel</spam
-              >
-            </button>
-          </div>
-          <div class="col-auto ">
-            <button
-              type="button"
-              class="btn btn-primary rounded-pill btn-lg"
-              style="background-color: rgba(8, 83, 115, 1);  padding: 8px 32px"
-            >
-              Save
-             
-            </button>
-          </div>
+    <div class="row g-3 align-items-center my-3">
+      <div class="col-2">
+        <label for="FormControlInput4" class="form-label">Password</label>
+      </div>
+      <div class="col-10">
+        <input type="password" class="form-control" id="addUserName" placeholder="*********" value="thepassword" required minlength="8"/>
+        <div id="FormControlInput5" class="form-text">
+          Minimun length 8, include almost one symbol
         </div>
       </div>
     </div>
 
-    <script>
-        const btn = document.querySelector('#menu-btn');
-        const menu = document.querySelector('#sidemenu');
-        btn.addEventListener('click', e => {
-            menu.classList.toggle("menu-expanded");
-            menu.classList.toggle("menu-collapsed");
-
-            document.querySelector('body').classList.toggle('body-expanded');
-        });
-    </script>
-</body>
-</html>
+    <div class="row g-3 align-items-center my-3">
+      <div class="col-2">
+        <label for="FormControlInput4" class="form-label">Rol</label>
+      </div>
+      <div class="col-10">
+        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+          <option selected value="1">SuperAdmin</option>
+          <option value="2">Admin</option>
+          <option value="3">End-User</option>
+        </select>
+      </div>
+    </div>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <div>
+        <a href="{{url_for('usuario.user')}}" class="btn btn-outline-primary rounded-pill">
+          <spam style="
+              color: rgba(8, 83, 115, 1);
+              border-color: rgba(8, 83, 115, 1);
+              padding: 8px 32px;
+            ">Cancelar</spam>
+        </a>
+      </div>
+      <div >
+        <button type="submit" class="btn btn-primary rounded-pill"
+          style="background-color: rgba(8, 83, 115, 1); padding: 8px 32px">
+          Guardar
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

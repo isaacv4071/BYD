@@ -3,7 +3,22 @@ from flask import render_template
 
 usuario = flask.Blueprint('usuario', __name__)
 
-#ruta para renderizar la pagina principal de User
-@usuario.route("/user", methods=['GET'])
+#pagina principal de usuarios
+@usuario.route("/usuarios", methods=['GET'])
+def user():
+    return render_template('user/UsersPage.html')
+
+#ruta para renderizar la pagina de agregar usuario
+@usuario.route("/agregarusuario", methods=['GET'])
 def adduser():
     return render_template('user/addUserPage.html')
+
+#ruta para renderizar la pagina de edditar usuario
+@usuario.route("/editarusuario", methods=['GET'])
+def edituser():
+    return render_template('user/editUser.html')
+
+#ruta para renderizar la pagina de usuario
+@usuario.route("/usuario", methods=['GET'])
+def viewuser():
+    return render_template('user/UserPage.html')
