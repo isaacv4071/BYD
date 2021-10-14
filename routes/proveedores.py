@@ -7,10 +7,10 @@ proveedores = flask.Blueprint('proveedores', __name__)
 def provider():
     return render_template('provider/provider.html')
 
-@proveedores.route("/agregarproveedor", methods=['GET'])
+@proveedores.route("/proveedor/agregar", methods=['GET'])
 def addProvider():
     return render_template('provider/addprovider.html')
 
-@proveedores.route("/editarproveedor", methods=['GET'])
+@proveedores.route("/proveedor/editar", methods=['GET'])
 def editProvider():
     return render_template('provider/editprovider.html')
