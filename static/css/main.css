@@ -333,3 +333,31 @@
 .container #cabecera-userPage .btn{
     margin-top:  20px;
 }
+
+/* agregar producto */
+.container #contenedor-addproducto .row{
+    justify-content: center;
+}
+.container #btn-space-addProducto{
+    margin-top: 40px;
+}
+.container #btn-space-addProducto #btnCancelar{
+    border-color: #0D2935;
+    color: #0D2935;
+    border-radius: 20px;
+}
+.container #btn-space-addProducto #btnCancelar:hover{
+    background-color: #085373;
+    color: #fff;
+}
+.container #btn-space-addProducto #btnAgregar{
+    background-color: #085373;
+    color: #fff;
+    border-radius: 20px;
+}
+.container #btn-space-addProducto #btnAgregar i{
+    margin-left: 5px;
+}
+.container #btn-space-addProducto .justifi-center{
+    justify-content: center;
+}

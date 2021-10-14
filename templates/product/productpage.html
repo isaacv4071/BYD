@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <div class="text-center">
+            <h2>PRODUCTO</h2>
+        </div>
+        <div id="contenedor-addproducto">
+            <form method="post" action="/editarproductos" enctype="multipart/form-data">
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Nombre</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" required value="Joe Smith Doe" readonly>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Proveedor</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" required value="Xiaomi" readonly>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Cantidad mínima requerida en bodega</label>
+                    <div class="col-sm-6">
+                      <input type="number" class="form-control" required value="9" readonly>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Cantidad disponible en bodega</label>
+                    <div class="col-sm-6">
+                      <input type="number" class="form-control" required value="15" readonly>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Description</label>
+                    <div class="col-sm-6">
+                        <textarea class="form-control" rows="2" required readonly>Descripción del producto</textarea>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Foto</label>
+                    <div class="col-sm-6">
+                        <img class="img-thumbnail" width="100" src="https://i.ibb.co/bzWKhG1/caja.jpg" alt="caja">
+                    </div>
+                </div>
+                <div id="btn-space-addProducto">
+                    <div class="d-grid gap-1 d-md-flex justifi-center">
+                      <a href="{{url_for('productos.product')}}" id="btnCancelar"class="btn me-md-2">Regresar</a>
+                    </div>
+                  </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

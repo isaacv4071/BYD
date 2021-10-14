@@ -16,6 +16,7 @@
       <thead class="cabecera">
         <tr>
           <th>Código</th>
+          <th>Foto</th>
           <th>Producto</th>
           <th>Proveedor</th>
           <th></th>
@@ -24,32 +25,35 @@
       <tbody>
         <tr>
           <td>728</td>
+          <td><img class="img-thumbnail" width="50" src="https://i.ibb.co/bzWKhG1/caja.jpg" alt="caja"></td>
           <td>TANG DM</td>
           <td>Emilio Ballesros</td>
           <td>
-            <button class="btn"><i class="bi bi-eye-fill"></i></button>
-            <button class="btn"><i class="bi bi-pencil-square"></i></button>
-            <button class="btn"><i class="bi bi-eraser-fill"></i></button>
+            <a class="btn" href="{{url_for('productos.viewproduct')}}"><i class="bi bi-eye-fill"></i></a>
+            <a class="btn" href="{{url_for('productos.editproduct')}}"><i class="bi bi-pencil-square"></i></a>
+            <button class="btn" type="button" data-bs-toggle="modal" data-bs-target="#ModalBorrar"><i class="bi bi-eraser-fill"></i></button>
           </td>
         </tr>
         <tr>
           <td>496</td>
+          <td><img class="img-thumbnail" width="50" src="https://i.ibb.co/bzWKhG1/caja.jpg" alt="caja"></td>
           <td>YUAN EV</td>
           <td>DN S.A.S</td>
           <td>
-            <button class="btn"><i class="bi bi-eye-fill"></i></button>
-            <button class="btn"><i class="bi bi-pencil-square"></i></button>
-            <button class="btn"><i class="bi bi-eraser-fill"></i></button>
+            <a class="btn" href="{{url_for('productos.viewproduct')}}"><i class="bi bi-eye-fill"></i></a>
+            <a class="btn" href="{{url_for('productos.editproduct')}}"><i class="bi bi-pencil-square"></i></a>
+            <button class="btn" type="button" data-bs-toggle="modal" data-bs-target="#ModalBorrar"><i class="bi bi-eraser-fill"></i></button>
           </td>
         </tr>
         <tr>
           <td>245</td>
+          <td><img class="img-thumbnail" width="50" src="https://i.ibb.co/bzWKhG1/caja.jpg" alt="caja"></td>
           <td>e3 HB</td>
           <td>ImporBrake</td>
           <td>
-            <button class="btn"><i class="bi bi-eye-fill"></i></button>
-            <button class="btn"><i class="bi bi-pencil-square"></i></button>
-            <button class="btn"><i class="bi bi-eraser-fill"></i></button>
+            <a class="btn" href="{{url_for('productos.viewproduct')}}"><i class="bi bi-eye-fill"></i></a>
+            <a class="btn" href="{{url_for('productos.editproduct')}}" ><i class="bi bi-pencil-square"></i></a>
+            <button class="btn" type="button" data-bs-toggle="modal" data-bs-target="#ModalBorrar"><i class="bi bi-eraser-fill"></i></button>
           </td>
         </tr>
       </tbody>
@@ -59,7 +63,26 @@
   <div id="btn_space">
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
       <button class="btn me-md-2" type="button">Generar Lista</button>
-      <button class="btn" type="button">Adicionar Producto<i class="bi bi-box"></i></button>
+      <a class="btn" href="{{url_for('productos.addproduct')}}">Agregar Producto<i class="bi bi-box"></i></a>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Borrar -->
+<div class="modal fade" id="ModalBorrar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Borrar producto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>¿Estás seguro de eliminar este producto? ¡esta acción no se puede deshacer!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btn-modal-cancelar"class="btn" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" id= "btn-modal-borrar"class="btn">Borrar</button>
+      </div>
     </div>
   </div>
 </div>
