@@ -15,7 +15,7 @@ def login():
     return render_template('index.html')
 
 #ruta para inicio de sesión y validacion de credenciales
-@app.route("/inicio", methods=['POST'])
+@app.route("/inicio", methods=['POST', 'GET'])
 def inicio():
     return render_template('inventory/inventory.html')
 
