@@ -13,10 +13,34 @@
         <div class="card-body ">
             <h5>BYD</h5>
             <i class="bi bi-person-circle"></i>
-            <form method="post" action="/inicio" enctype="multipart/form-data">
-                <input class="form-control text-center" type="text" placeholder="Usuario" aria-label="Usuario" required>
-                <input class="form-control text-center" type="password" placeholder="Contraseña" aria-label="Contraseña" required minlength="8">
-                <button type="submit" class="btn" id="btnLogin">Iniciar sesión</button>
+            <form method="post" action="" enctype="multipart/form-data" novalidate>
+                {{form.hidden_tag()}}
+
+                <div>
+                {% if form.name.errors %}
+                {{form.name(class="form-control text-center is-invalid",  placeholder="Usuario")}}
+                    {% for error in form.name.errors %}
+                        <span style="color: red">{{error}}</span>
+                    {% endfor %}
+                    {% else %}
+                    {{form.name(class="form-control text-center",  placeholder="Usuario")}}
+                {% endif %}
+                </div>
+
+                <div>
+                {% if form.password.errors %}
+                {{form.password(class="form-control text-center is-invalid",  placeholder="Usuario")}}
+                    {% for error in form.password.errors %}
+                    <span style="color: red">{{error}}</span>
+                    {% endfor %}
+                {% else %}
+                {{form.password(class="form-control text-center",  placeholder="Contraseña")}}
+                {% endif %}
+                </div>
+
+                <div>
+                    {{form.submit(class="btn", id="btnLogin")}}
+                </div>
             </form>
         </div>
       </div>

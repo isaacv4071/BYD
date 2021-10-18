@@ -1,23 +1,23 @@
 from flask import Flask
-from flask import render_template
+from flask import render_template, redirect, url_for
 import os
 from routes.proveedores import proveedores
 from routes.usuarios import usuario
 from routes.inventario import inventario
 from routes.producto import productos
+from forms import LoginForm
 
 app = Flask(__name__)
-app.secret_key=os.urandom(24)
+app.config['SECRET_KEY'] = os.urandom(24)
 
 # ruta para renderizar el login
-@app.route("/")
+@app.route("/",methods=['POST', 'GET'])
 def login():
-    return render_template('index.html')
+    form = LoginForm()
+    if form.validate_on_submit():
+        return redirect(url_for('inventario.inventory'))
+    return render_template('index.html', form=form)
 
-#ruta para inicio de sesión y validacion de credenciales
-@app.route("/inicio", methods=['POST'])
-def inicio():
-    return render_template('inventory/inventory.html')
 
 app.register_blueprint(productos)
 app.register_blueprint(proveedores)
