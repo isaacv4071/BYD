@@ -6,25 +6,61 @@
             <h2>EDITAR PROVEEDOR</h2>
         </div>
         <div id="contenedor-addproveedor">
-            <form method="post" action="/editarproveedor" enctype="multipart/form-data">
-                  <div class="mb-3 row">
-                    <label class="col-sm-1 col-form-label">Nombre</label>
-                    <div class="col-sm-6">
-                      <input type="text" class="form-control" value="Isaac Arrieta MErcado" required>
-                    </div>
-                  </div>
-                  <div class="mb-3 row">
-                    <label class="col-sm-1 col-form-label">Telefono</label>
-                    <div class="col-sm-6">
-                      <input type="number" class="form-control" value="30086640000" required>
-                    </div>
-                  </div>
-                  <div class="mb-3 row">
-                    <label class="col-sm-1 col-form-label">Email</label>
-                    <div class="col-sm-6">
-                      <input type="email" class="form-control" value="isaac@correo.com" required>
-                    </div>
-                  </div>
+          <form method="post" action="" enctype="multipart/form-data" novalidate>
+            <div class="mb-3 row">
+              <label class="col-sm-1 col-form-label">Nombres</label>
+              <div class="col-sm-6">
+                {% if form.name.errors %}
+                {{form.name(class="form-control is-invalid")}}
+                {% for error in form.name.errors %}
+                <span style="color: red">{{error}}</span>
+                {% endfor %}
+                {% else %}
+                {{form.name(class="form-control", value="Isaac Damian")}}
+                {% endif %}
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label class="col-sm-1 col-form-label">Apellidos</label>
+              <div class="col-sm-6">
+                {% if form.lastname.errors %}
+                {{form.lastname(class="form-control is-invalid")}}
+                {% for error in form.lastname.errors %}
+                <span style="color: red">{{error}}</span>
+                {% endfor %}
+                {% else %}
+                {{form.lastname(class="form-control", value="Arrieta Mercado")}}
+                {% endif %}
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label class="col-sm-1 col-form-label">Telefono</label>
+              <div class="col-sm-6">
+                <!-- <input type="email" class="form-control" required> -->
+                {% if form.telephone.errors %}
+                {{form.telephone(class="form-control is-invalid", type="number")}}
+                {% for error in form.telephone.errors %}
+                <span style="color: red">{{error}}</span>
+                {% endfor %}
+                {% else %}
+                {{form.telephone(class="form-control ", type="number", value="3012544153")}}
+                {% endif %}
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label class="col-sm-1 col-form-label">Email</label>
+              <div class="col-sm-6">
+                <!-- <input type="email" class="form-control" required> -->
+                {% if form.Email.errors %}
+                {{form.Email(class="form-control is-invalid")}}
+                {% for error in form.Email.errors %}
+                <span style="color: red">{{error}}</span>
+                {% endfor %}
+                {% else %}
+                {{form.Email(class="form-control", value="isaac@correo.com")}}
+                {% endif %}
+              </div>
+            </div>
                   <div id="btn-space-addProvider">
                     <div class="d-grid gap-2 d-md-flex justifi-center">
                       <a href="{{url_for('proveedores.provider')}}" id="btnCancelar"class="btn me-md-2">Cancelar</a>

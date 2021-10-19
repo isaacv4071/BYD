@@ -5,22 +5,36 @@
   <div class="title">
     <h2>EDITAR USUARIO</h2>
   </div>
-  <form method="post" action="/editusuario" enctype="multipart/form-data">
+  <form method="post" action="" enctype="multipart/form-data" novalidate>
     <div class="row g-3 align-items-center my-3">
       <div class="col-2">
-        <label for="FormControlInput1" class="form-label">Name</label>
+        <label for="FormControlInput1" class="form-label">Nombres</label>
       </div>
       <div class="col-10">
-        <input type="text" class="form-control" id="addUserName" placeholder="Jhon" value="Jhon" required/>
+        {% if form.name.errors %}
+        {{form.name(class="form-control is-invalid")}}
+        {% for error in form.name.errors %}
+        <span style="color: red">{{error}}</span>
+        {% endfor %}
+        {% else %}
+        {{form.name(class="form-control", value="Jhon")}}
+        {% endif %}
       </div>
     </div>
 
     <div class="row g-3 align-items-center my-3">
       <div class="col-2">
-        <label for="FormControlInput2" class="form-label">Last Name</label>
+        <label for="FormControlInput2" class="form-label">Apellidos</label>
       </div>
       <div class="col-10">
-        <input type="text" class="form-control" id="addUserName" placeholder="Doe" value="Doe" required/>
+       {% if form.lastname.errors %}
+        {{form.lastname(class="form-control is-invalid", value="Doe")}}
+        {% for error in form.lastname.errors %}
+        <span style="color: red">{{error}}</span>
+        {% endfor %}
+        {% else %}
+        {{form.lastname(class="form-control ", value="Usuario")}}
+        {% endif %}
       </div>
     </div>
 
@@ -29,20 +43,47 @@
         <label for="FormControlInput3" class="form-label">Email</label>
       </div>
       <div class="col-10">
-        <input type="email" class="form-control" id="addUserName" placeholder="usermail@domain.com"
-          value="JhonDoe99@mail.com" required/>
+        {% if form.Email.errors %}
+        {{form.Email(class="form-control is-invalid", value="usermail@domain.com")}}
+        {% for error in form.Email.errors %}
+        <span style="color: red">{{error}}</span>
+        {% endfor %}
+        {% else %}
+        {{form.Email(class="form-control", value="usermail@domain.com")}}
+        {% endif %}
+      </div>
+    </div>
+
+    
+    <div class="row g-3 align-items-center my-3">
+      <div class="col-2">
+        <label for="FormControlInput3" class="form-label">Usuario</label>
+      </div>
+      <div class="col-10">
+        {% if form.username.errors %}
+        {{form.username(class="form-control is-invalid", value="JhonDoe99")}}
+        {% for error in form.username.errors %}
+        <span style="color: red">{{error}}</span>
+        {% endfor %}
+        {% else %}
+        {{form.username(class="form-control", value="JhonDoe99")}}
+        {% endif %}
       </div>
     </div>
 
     <div class="row g-3 align-items-center my-3">
       <div class="col-2">
-        <label for="FormControlInput4" class="form-label">Password</label>
+        <label for="FormControlInput4" class="form-label">Contraseña</label>
       </div>
       <div class="col-10">
-        <input type="password" class="form-control" id="addUserName" placeholder="*********" value="thepassword" required minlength="8"/>
-        <div id="FormControlInput5" class="form-text">
-          Minimun length 8, include almost one symbol
-        </div>
+       {% if form.password.errors %}
+       {{form.password(class="form-control is-invalid", type="password")}}
+       {% for error in form.password.errors %}
+       <span style="color: red">{{error}}</span>
+       {% endfor %}
+       {% else %}
+       {{form.password(class="form-control", type="password")}}
+       {% endif %}
       </div>
     </div>
 
@@ -50,12 +91,8 @@
       <div class="col-2">
         <label for="FormControlInput4" class="form-label">Rol</label>
       </div>
-      <div class="col-10">
-        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-          <option selected value="1">SuperAdmin</option>
-          <option value="2">Admin</option>
-          <option value="3">End-User</option>
-        </select>
+      <div class="col-4">
+        {{form.role(class="form-select form-select-sm")}}
       </div>
     </div>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
