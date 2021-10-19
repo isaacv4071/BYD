@@ -1,6 +1,5 @@
 import flask
 from flask import render_template, redirect, url_for
-from flask_wtf import form
 from forms import UserForm
 
 usuario = flask.Blueprint('usuario', __name__)
