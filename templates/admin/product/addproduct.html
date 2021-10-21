@@ -1,0 +1,91 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="text-center">
+        <h2>AGREGAR PRODUCTO</h2>
+    </div>
+    <div id="contenedor-addproducto">
+        <form method="post" action="" enctype="multipart/form-data" novalidate>
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label">Nombre</label>
+                <div class="col-sm-6">
+                    {% if form.name.errors %}
+                    {{form.name(class="form-control is-invalid")}}
+                    {% for error in form.name.errors %}
+                    <span style="color: red">{{error}}</span>
+                    {% endfor %}
+                    {% else %}
+                    {{form.name(class="form-control")}}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label">Proveedor</label>
+                <div class="col-sm-6">
+                    {{form.provider(class="form-select")}}
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label">Cantidad mínima requerida en bodega</label>
+                <div class="col-sm-6">
+                    {% if form.Minimumquantityrequired.errors %}
+                    {{form.Minimumquantityrequired(class="form-control is-invalid", type="number")}}
+                    {% for error in form.Minimumquantityrequired.errors %}
+                    <span style="color: red">{{error}}</span>
+                    {% endfor %}
+                    {% else %}
+                    {{form.Minimumquantityrequired(class="form-control", type="number")}}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label">Cantidad disponible en bodega</label>
+                <div class="col-sm-6">
+                    {% if form.Quantityavailable.errors %}
+                    {{form.Quantityavailable(class="form-control is-invalid", type="number")}}
+                    {% for error in form.Quantityavailable.errors %}
+                    <span style="color: red">{{error}}</span>
+                    {% endfor %}
+                    {% else %}
+                    {{form.Quantityavailable(class="form-control", type="number")}}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label">Descripción</label>
+                <div class="col-sm-6">
+                    {% if form.Description.errors %}
+                    {{form.Description(class="form-control is-invalid", rows="2")}}
+                    {% for error in form.Description.errors %}
+                    <span style="color: red">{{error}}</span>
+                    {% endfor %}
+                    {% else %}
+                    {{form.Description(class="form-control", rows="2")}}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label">Foto</label>
+                <div class="col-sm-6">
+                    {% if form.photo.errors %}
+                    {{form.photo(class="form-control is-invalid")}}
+                    {% for error in form.photo.errors %}
+                    <span style="color: red">{{error}}</span>
+                    {% endfor %}
+                    {% else %}
+                    {{form.photo(class="form-control")}}
+                    {% endif %}
+                </div>
+            </div>
+            <div id="btn-space-addProducto">
+                <div class="d-grid gap-2 d-md-flex justifi-center">
+                    <a href="{{url_for('productos.product')}}" id="btnCancelar" class="btn me-md-2">Cancelar</a>
+                    <button id="btnAgregar" class="btn" type="submit">Agregar Producto<i
+                            class="bi-box-seam"></i></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

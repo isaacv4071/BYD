@@ -1,0 +1,75 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+<div class="container">
+  <!-- Espaciado lateral-->
+  <div class="row justify-content-between align-content-center">
+    <div id="cabecera-userPage" class="d-grid gap-3 d-md-flex">
+        <div style="color: #0d2935; font-family: 'Roboto', sans-serif;"><h2>USER</h2></div>
+        <div class="ms-auto">
+          <a href="{{url_for('usuario.edituser')}}" class="btn btn-primary rounded-pill" style="background-color: rgba(8, 83, 115, 1)">
+            Editar
+            <i class="bi bi-pencil-square"></i>
+          </a>
+        </div>
+        <div>
+          <button type="button" class="btn btn-primary rounded-pill" data-bs-toggle="modal" data-bs-target="#ModalBorrar" style="background-color: rgba(8, 83, 115, 1)">
+            Borrar
+            <i class="bi bi-eraser-fill"></i>
+          </button>
+        </div>
+    </div>
+    <!-- espacio estre cabecera y elementos de lista-->
+    <div style="padding-left: 40px; padding-bottom: 40px;">
+      <div class="row ">
+        <div class="col-2"> Nombres</div>
+        <div class="col-10">Jhon</div>
+      </div>
+    </div>
+    <div style="padding-left: 40px; padding-bottom: 40px;">
+      <div class="row ">
+        <div class="col-2">Apellidos</div>
+        <div class="col-10">Doe</div>
+      </div>
+    </div>
+    <div style="padding-left: 40px; padding-bottom: 40px;">
+      <div class="row ">
+        <div class="col-2">Email</div>
+        <div class="col-10">JhonDoe99@mail.com</div>
+      </div>
+    </div>
+    <div style="padding-left: 40px; padding-bottom: 40px;">
+      <div class="row ">
+        <div class="col-2"> Usuario</div>
+        <div class="col-10">JhonDoe99</div>
+      </div>
+    </div>
+    <div style="padding-left: 40px; padding-bottom: 40px;">
+      <div class="row ">
+        <div class="col-2">Rol</div>
+        <div class="col-10">SuperAdmin</div>
+      </div>
+    </div>
+  </div>
+  <a href="{{url_for('usuario.user')}}" class="btn btn-outline-primary rounded-pill" style="padding: 8px 32px; margin-top: 40px;"> Regresar </a>
+</div>
+</div>
+<!-- Modal Borrar -->
+<div class="modal fade" id="ModalBorrar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Borrar usuario</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>¿Estás seguro de eliminar este usuario? ¡esta acción no se puede deshacer!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btn-modal-cancelar"class="btn" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" id= "btn-modal-borrar"class="btn">Borrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

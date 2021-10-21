@@ -1,0 +1,71 @@
+{% extends "endUser/base.html" %}
+
+{% block content %}
+<div class="container">
+  <div class="text-center">
+    <h2>AGREGAR PROVEEDOR</h2>
+  </div>
+  <div id="contenedor-addproveedor">
+    <form method="post" action="" enctype="multipart/form-data" novalidate>
+      <div class="mb-3 row">
+        <label class="col-sm-1 col-form-label">Nombres</label>
+        <div class="col-sm-6">
+          {% if form.name.errors %}
+          {{form.name(class="form-control is-invalid")}}
+          {% for error in form.name.errors %}
+          <span style="color: red">{{error}}</span>
+          {% endfor %}
+          {% else %}
+          {{form.name(class="form-control")}}
+          {% endif %}
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-sm-1 col-form-label">Apellidos</label>
+        <div class="col-sm-6">
+          {% if form.lastname.errors %}
+          {{form.lastname(class="form-control is-invalid")}}
+          {% for error in form.lastname.errors %}
+          <span style="color: red">{{error}}</span>
+          {% endfor %}
+          {% else %}
+          {{form.lastname(class="form-control")}}
+          {% endif %}
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-sm-1 col-form-label">Telefono</label>
+        <div class="col-sm-6">
+          {% if form.telephone.errors %}
+          {{form.telephone(class="form-control is-invalid", type="number")}}
+          {% for error in form.telephone.errors %}
+          <span style="color: red">{{error}}</span>
+          {% endfor %}
+          {% else %}
+          {{form.telephone(class="form-control ", type="number")}}
+          {% endif %}
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-sm-1 col-form-label">Email</label>
+        <div class="col-sm-6">
+          {% if form.Email.errors %}
+          {{form.Email(class="form-control is-invalid")}}
+          {% for error in form.Email.errors %}
+          <span style="color: red">{{error}}</span>
+          {% endfor %}
+          {% else %}
+          {{form.Email(class="form-control")}}
+          {% endif %}
+        </div>
+      </div>
+      <div id="btn-space-addProvider">
+        <div class="d-grid gap-2 d-md-flex justifi-center">
+          <a href="{{url_for('proveedores.provider')}}" id="btnCancelar" class="btn me-md-2">Cancelar</a>
+          <button id="btnAgregar" class="btn" type="submit">Adicionar Proveedor<i class="bi bi-truck"></i></button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,123 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+<div class="container">
+  <div class="container" id="title-adduser">
+    <h2>AGREGAR USUARIOS</h2>
+  </div>
+  <form method="post" action="" enctype="multipart/form-data" novalidate>
+    {{form.hidden_tag()}}
+    <div class="row g-3 align-items-center my-3">
+      <div class="col-2">
+        <label for="FormControlInput1" class="form-label">Nombres</label>
+      </div>
+      <div class="col-10">
+        {% if form.name.errors %}
+        {{form.name(class="form-control is-invalid", placeholder="Jhon")}}
+        {% for error in form.name.errors %}
+        <span style="color: red">{{error}}</span>
+        {% endfor %}
+        {% else %}
+        {{form.name(class="form-control", placeholder="Jhon")}}
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="row g-3 align-items-center my-3">
+      <div class="col-2">
+        <label for="FormControlInput2" class="form-label">Apellidos</label>
+      </div>
+      <div class="col-10">
+        {% if form.lastname.errors %}
+        {{form.lastname(class="form-control is-invalid", placeholder="Doe")}}
+        {% for error in form.lastname.errors %}
+        <span style="color: red">{{error}}</span>
+        {% endfor %}
+        {% else %}
+        {{form.lastname(class="form-control ", placeholder="Usuario")}}
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="row g-3 align-items-center my-3">
+      <div class="col-2">
+        <label for="FormControlInput3" class="form-label">Email</label>
+      </div>
+      <div class="col-10">
+        {% if form.Email.errors %}
+        {{form.Email(class="form-control is-invalid", placeholder="usermail@domain.com")}}
+        {% for error in form.Email.errors %}
+        <span style="color: red">{{error}}</span>
+        {% endfor %}
+        {% else %}
+        {{form.Email(class="form-control", placeholder="usermail@domain.com")}}
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="row g-3 align-items-center my-3">
+      <div class="col-2">
+        <label for="FormControlInput4" class="form-label">Usuario</label>
+      </div>
+      <div class="col-10">
+        {% if form.username.errors %}
+        {{form.username(class="form-control is-invalid", placeholder="JhonDoe99")}}
+        {% for error in form.username.errors %}
+        <span style="color: red">{{error}}</span>
+        {% endfor %}
+        {% else %}
+        {{form.username(class="form-control", placeholder="JhonDoe99")}}
+        {% endif %}
+        <div id="FormControlInput5" class="form-text">
+          No incluya espacios ni caracteres especiales.
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-3 align-items-center my-3">
+      <div class="col-2">
+        <label for="FormControlInput4" class="form-label">Contraseña</label>
+      </div>
+      <div class="col-10">
+        {% if form.password.errors %}
+        {{form.password(class="form-control is-invalid", type="password", placeholder="*********")}}
+        {% for error in form.password.errors %}
+        <span style="color: red">{{error}}</span>
+        {% endfor %}
+        {% else %}
+        {{form.password(class="form-control", type="password", placeholder="*********")}}
+        {% endif %}
+        <div id="FormControlInput5" class="form-text">
+          Debe contener al menos un número y una letra mayúscula y minúscula, y al menos 8 caracteres o más
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-3 align-items-center my-3">
+      <div class="col-2">
+        <label for="FormControlInput4" class="form-label">Rol</label>
+      </div>
+      <div class="col-4">
+        {{form.role(class="form-select form-select-sm")}}
+      </div>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <div class="col-auto">
+          <a type="button" class="btn btn-outline-primary rounded-pill" href="{{url_for('usuario.user')}}">
+            <spam style="
+                      color: rgba(8, 83, 115, 1);
+                      border-color: rgba(8, 83, 115, 1);
+                    ">Cancelar</spam>
+          </a>
+        </div>
+        <div class="col-auto">
+          <button type="submit" class="btn btn-primary rounded-pill" style="background-color: rgba(8, 83, 115, 1)">
+            Agregar usuario
+            <i class="bi bi-person-circle"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+</div>
+{% endblock %}
