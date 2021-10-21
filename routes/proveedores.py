@@ -11,13 +11,13 @@ def provider():
         user = session['usuario']
         if form.validate_on_submit():
             pass
-        if request.method == 'GET':
-            if session['rol'] == 1:
-                return render_template('superAdmin/provider/provider.html', form = form, username = user)
-            elif session['rol'] == 2:
+
+        if session['rol'] == 1:
+            return render_template('superAdmin/provider/provider.html', form = form, username = user)
+        elif session['rol'] == 2:
                 return render_template('admin/provider/provider.html', form = form, username = user)
-            else: 
-                return render_template('endUser/provider/provider.html', form = form, username = user)
+        else: 
+            return render_template('endUser/provider/provider.html', form = form, username = user)
     else:
         return "no valid"
 
@@ -28,13 +28,13 @@ def addProvider():
         user = session['usuario']
         if form.validate_on_submit():
             pass
-        if request.method == 'GET':
-            if session['rol'] == 1:
-                return render_template('superAdmin/provider/addprovider.html', form = form, username = user)
-            elif session['rol'] == 2:
-                return render_template('admin/provider/addprovider.html', form = form, username = user)
-            else: 
-                return render_template('endUser/provider/addprovider.html', form = form, username = user)
+
+        if session['rol'] == 1:
+            return render_template('superAdmin/provider/addprovider.html', form = form, username = user)
+        elif session['rol'] == 2:
+            return render_template('admin/provider/addprovider.html', form = form, username = user)
+        else: 
+            return render_template('endUser/provider/addprovider.html', form = form, username = user)
     else: 
         return "no valid"
 
@@ -45,12 +45,12 @@ def editProvider():
         user = session['usuario']
         if form.validate_on_submit():
             pass
-        if request.method == 'GET':
-            if session['rol'] == 1:
-                return render_template('superAdmin/provider/editprovider.html', form = form, username = user)
-            elif session['rol'] == 2:
-                return render_template('admin/provider/editprovider.html', form = form, username = user)
-            else: 
-                return render_template('endUser/provider/editprovider.html', form = form, username = user)
+
+        if session['rol'] == 1:
+            return render_template('superAdmin/provider/editprovider.html', form = form, username = user)
+        elif session['rol'] == 2:
+            return render_template('admin/provider/editprovider.html', form = form, username = user)
+        else: 
+            return render_template('endUser/provider/editprovider.html', form = form, username = user)
     else:
         return "no valid"

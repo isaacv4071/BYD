@@ -53,6 +53,7 @@ def adduser():
         if session['rol'] == 1:
             return render_template('superAdmin/user/addUserPage.html', username = user, form = form)
         else:
+            form.role.choices = [(3,'Usuario final')]
             return render_template('admin/user/addUserPage.html', username = user, form = form)
     else:
         return "no valid"
@@ -82,4 +83,6 @@ def viewuser():
             return render_template('superAdmin/user/UserPage.html', username = user)
         else:
             return render_template('admin/user/UserPage.html', username = user)
+    else: 
+        return "no valid"
         

@@ -13,12 +13,11 @@ def inventory():
         if form.validate_on_submit():
             pass
 
-        if request.method == 'GET':
-            if session['rol'] == 1:
-                return render_template('superAdmin/inventory/inventory.html', form = form, username = user)
-            elif session['rol'] == 2:
-                return render_template('admin/inventory/inventory.html', form = form, username = user)
-            else: 
-                return render_template('endUser/inventory/inventory.html', form = form, username = user)
+        if session['rol'] == 1:
+            return render_template('superAdmin/inventory/inventory.html', form = form, username = user)
+        elif session['rol'] == 2:
+            return render_template('admin/inventory/inventory.html', form = form, username = user)
+        else: 
+            return render_template('endUser/inventory/inventory.html', form = form, username = user)
     else:
         return "No tienes permiso pa entra"

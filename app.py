@@ -46,9 +46,9 @@ def login():
             con.rollback()
             print("error in operation")
         finally:
-            con.close()
-    if request.method == 'GET':
-        return render_template('index.html', form=form)
+            con.close()    
+            
+    return render_template('index.html', form=form)
 
 @app.route('/logout')
 def logout():

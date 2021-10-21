@@ -12,6 +12,7 @@ def product():
         user = session['usuario']
         if form.validate_on_submit():
             pass
+        
         if request.method == 'GET':
             if session['rol'] == 1:
                 return render_template('superAdmin/product/producto.html', form = form, username = user)
@@ -47,6 +48,7 @@ def editproduct():
         form.Description.data='this is my textarea content!'
         if form.validate_on_submit():
             pass
+
         if session['rol'] == 1:
             return render_template('superAdmin/product/editproduct.html', form = form, username = user)
         elif session['rol'] == 2:
