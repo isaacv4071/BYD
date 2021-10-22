@@ -20,4 +20,4 @@ def inventory():
         else: 
             return render_template('endUser/inventory/inventory.html', form = form, username = user)
     else:
-        return "No tienes permiso pa entra"
+        return render_template('error.html')

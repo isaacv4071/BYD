@@ -38,7 +38,7 @@ def addproduct():
         else: 
              return render_template('endUser/product/addproduct.html', form = form, username = user)
     else:
-        return "no valid"
+        return render_template('error.html')
 
 @productos.route("/productos/editar",methods=['GET', 'POST'])
 def editproduct():
@@ -56,7 +56,7 @@ def editproduct():
         else: 
              return render_template('endUser/product/editproduct.html', form = form, username = user)
     else: 
-        return "no valid" 
+        return render_template('error.html')
 
 @productos.route("/producto",methods=['GET', 'POST'])
 def viewproduct():
@@ -69,4 +69,4 @@ def viewproduct():
         else: 
              return render_template('endUser/product/productpage.html', username = user)
     else:
-        return "no valid"
+        return render_template('error.html')

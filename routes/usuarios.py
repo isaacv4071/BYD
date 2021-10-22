@@ -20,7 +20,7 @@ def user():
         else: 
             return render_template('admin/user/UsersPage.html', username = user)    
     else: 
-        return "no valid" 
+        return render_template('error.html') 
 
 #ruta para renderizar la pagina de agregar usuario
 @usuario.route("/usuario/agregar", methods=['GET','POST'])
@@ -56,7 +56,7 @@ def adduser():
             form.role.choices = [(3,'Usuario final')]
             return render_template('admin/user/addUserPage.html',username = user, form = form)
     else:
-        return "no valid"
+        return render_template('error.html')
 
 
 #ruta para renderizar la pagina de editar usuario
@@ -73,7 +73,7 @@ def edituser():
         else:
             return render_template('admin/user/editUser.html', username = user, form = form)
     else:
-        return "no valid"
+        return render_template('error.html')
 
 #ruta para renderizar la pagina de usuario
 @usuario.route("/usuario", methods=['GET','POST'])
@@ -84,5 +84,5 @@ def viewuser():
         else:
             return render_template('admin/user/UserPage.html', username = user)
     else: 
-        return "no valid"
+        return render_template('error.html')
         

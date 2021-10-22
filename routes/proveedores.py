@@ -19,7 +19,7 @@ def provider():
         else: 
             return render_template('endUser/provider/provider.html', form = form, username = user)
     else:
-        return "no valid"
+        return render_template('error.html')
 
 @proveedores.route("/proveedor/agregar", methods=['GET', 'POST'])
 def addProvider():
@@ -36,7 +36,7 @@ def addProvider():
         else: 
             return render_template('endUser/provider/addprovider.html', form = form, username = user)
     else: 
-        return "no valid"
+        return render_template('error.html')
 
 @proveedores.route("/proveedor/editar", methods=['GET', 'POST'])
 def editProvider():
@@ -53,4 +53,4 @@ def editProvider():
         else: 
             return render_template('endUser/provider/editprovider.html', form = form, username = user)
     else:
-        return "no valid"
+        return render_template('error.html')
