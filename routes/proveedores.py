@@ -1,6 +1,7 @@
 import flask
 from flask import render_template, session, request
 from forms import SearchForm, ProviderForm
+from database.db import get_db
 
 proveedores = flask.Blueprint('proveedores', __name__)
 
@@ -9,15 +10,23 @@ def provider():
     if 'usuario' in session:
         form = SearchForm()
         user = session['usuario']
-        if form.validate_on_submit():
-            pass
-
-        if session['rol'] == 1:
-            return render_template('superAdmin/provider/provider.html', form = form, username = user)
-        elif session['rol'] == 2:
-                return render_template('admin/provider/provider.html', form = form, username = user)
-        else: 
-            return render_template('endUser/provider/provider.html', form = form, username = user)
+        sql = "SELECT * FROM vendors_5"
+        try:
+            con = get_db()
+            cur = con.cursor()
+            proveedores = cur.execute(sql).fetchall()
+            con.commit()
+            if session['rol'] == 1:
+                return render_template('superAdmin/provider/provider.html', form = form, username = user, proveedores=proveedores)
+            elif session['rol'] == 2:
+                return render_template('admin/provider/provider.html', form = form, username = user, proveedores=proveedores)
+            else: 
+                return render_template('endUser/provider/provider.html', form = form, username = user, proveedores=proveedores)
+        except:
+            con.rollback()
+            print("error in operation")
+        finally:
+            con.close() 
     else:
         return render_template('error.html')
 

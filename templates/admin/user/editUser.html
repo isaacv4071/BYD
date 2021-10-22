@@ -5,7 +5,17 @@
   <div class="title">
     <h2>EDITAR USUARIO</h2>
   </div>
-  <form method="post" action="" enctype="multipart/form-data" novalidate>
+  <form method="post" action="/usuario/update" enctype="multipart/form-data" novalidate>
+
+    <div class="row g-3 align-items-center my-3">
+      <div class="col-2">
+        <label for="FormControlInput1" class="form-label">ID</label>
+      </div>
+      <div class="col-10">
+        <input type="number" class="form-control" readonly value="{{usuario[0]}}" name="txtid">
+      </div>
+    </div>
+
     <div class="row g-3 align-items-center my-3">
       <div class="col-2">
         <label for="FormControlInput1" class="form-label">Nombres</label>
@@ -17,7 +27,7 @@
         <span style="color: red">{{error}}</span>
         {% endfor %}
         {% else %}
-        {{form.name(class="form-control", value="Jhon")}}
+        {{form.name(class="form-control")}}
         {% endif %}
       </div>
     </div>
@@ -28,12 +38,12 @@
       </div>
       <div class="col-10">
        {% if form.lastname.errors %}
-        {{form.lastname(class="form-control is-invalid", value="Doe")}}
+        {{form.lastname(class="form-control is-invalid")}}
         {% for error in form.lastname.errors %}
         <span style="color: red">{{error}}</span>
         {% endfor %}
         {% else %}
-        {{form.lastname(class="form-control ", value="Usuario")}}
+        {{form.lastname(class="form-control ")}}
         {% endif %}
       </div>
     </div>
@@ -44,12 +54,12 @@
       </div>
       <div class="col-10">
         {% if form.Email.errors %}
-        {{form.Email(class="form-control is-invalid", value="usermail@domain.com")}}
+        {{form.Email(class="form-control is-invalid")}}
         {% for error in form.Email.errors %}
         <span style="color: red">{{error}}</span>
         {% endfor %}
         {% else %}
-        {{form.Email(class="form-control", value="usermail@domain.com")}}
+        {{form.Email(class="form-control")}}
         {% endif %}
       </div>
     </div>
@@ -61,31 +71,16 @@
       </div>
       <div class="col-10">
         {% if form.username.errors %}
-        {{form.username(class="form-control is-invalid", value="JhonDoe99")}}
+        {{form.username(class="form-control is-invalid")}}
         {% for error in form.username.errors %}
         <span style="color: red">{{error}}</span>
         {% endfor %}
         {% else %}
-        {{form.username(class="form-control", value="JhonDoe99")}}
+        {{form.username(class="form-control")}}
         {% endif %}
       </div>
     </div>
 
-    <div class="row g-3 align-items-center my-3">
-      <div class="col-2">
-        <label for="FormControlInput4" class="form-label">Contraseña</label>
-      </div>
-      <div class="col-10">
-       {% if form.password.errors %}
-       {{form.password(class="form-control is-invalid", type="password")}}
-       {% for error in form.password.errors %}
-       <span style="color: red">{{error}}</span>
-       {% endfor %}
-       {% else %}
-       {{form.password(class="form-control", type="password")}}
-       {% endif %}
-      </div>
-    </div>
 
     <div class="row g-3 align-items-center my-3">
       <div class="col-2">

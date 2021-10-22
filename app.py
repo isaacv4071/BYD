@@ -1,6 +1,6 @@
 import os
 from flask import Flask
-from flask import render_template, redirect, url_for, session, request
+from flask import render_template, redirect, url_for, session
 from flask.helpers import flash
 #databases
 from database.db import get_db
@@ -12,8 +12,6 @@ from routes.producto import productos
 from forms import LoginForm
 #protencción contra scripts
 from markupsafe import escape
-#librerias hash
-import hashlib
 from werkzeug.security import check_password_hash
 
 app = Flask(__name__)
