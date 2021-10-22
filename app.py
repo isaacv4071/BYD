@@ -26,7 +26,7 @@ def login():
     if form.validate_on_submit():
         user = escape(form.name.data)
         password = escape(form.password.data)
-        sql = "SELECT password, rol FROM User WHERE userName=?"
+        sql = "SELECT passwordUser_2, rol_3_idRol_3 FROM user_2 WHERE usernameUser_2=?"
         try:
             con = get_db()
             cur = con.cursor()

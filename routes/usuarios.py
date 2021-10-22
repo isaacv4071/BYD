@@ -20,7 +20,7 @@ def user():
         else: 
             return render_template('admin/user/UsersPage.html', username = user)    
     else: 
-        return "no valid"
+        return "no valid" 
 
 #ruta para renderizar la pagina de agregar usuario
 @usuario.route("/usuario/agregar", methods=['GET','POST'])
@@ -36,8 +36,8 @@ def adduser():
             password = escape(form.password.data)
             role = escape(form.role.data)
             has_password = generate_password_hash(password, method='pbkdf2:sha256', salt_length=16)
-            datos = (name, Email, lastname ,username, has_password, role) 
-            sql = "INSERT INTO User(idUser, name, email, lastName, userName, password, rol) VALUES (NULL,?,?,?,?,?,?)"
+            datos = (role, name, lastname, Email, username, has_password) 
+            sql = "INSERT INTO user_2(iduser_2, rol_3_idRol_3, nameUser_2, lastNameUser_2, emailUser_2, usernameUser_2, passwordUser_2) VALUES (NULL,?,?,?,?,?,?)"
             try:
                 con = get_db()
                 cur = con.cursor()
@@ -54,7 +54,7 @@ def adduser():
             return render_template('superAdmin/user/addUserPage.html', username = user, form = form)
         else:
             form.role.choices = [(3,'Usuario final')]
-            return render_template('admin/user/addUserPage.html', username = user, form = form)
+            return render_template('admin/user/addUserPage.html',username = user, form = form)
     else:
         return "no valid"
 
