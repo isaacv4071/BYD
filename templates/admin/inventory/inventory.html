@@ -1,0 +1,86 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+<div class="container">
+    <div id="title-inventory">
+        <h2>INVENTARIO</h2>
+        <div id="contenedor-inventario">
+            <h5 class="text-center">Registrar Venta</h5>
+            <div class="form-inventario">
+                <form method="post" action="" enctype="multipart/form-data" novalidate>
+                  {{form.hidden_tag()}}
+                    <div class="row g-2">
+                        <div class="col-auto">
+                            {{form.select(class="form-select")}}
+                        </div>
+                        <div class="col-auto">
+                            {% if form.valor.errors %}
+                            {{form.valor(class="form-control is-invalid", type="number")}}
+                                {% for error in form.valor.errors %}
+                                  <span style="color: red">{{error}}</span>
+                                {% endfor %}
+                            {% else %}
+                            {{form.valor(class="form-control", type="number")}}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="d-grid col-3 mx-auto">
+                        <button class="btn" type="submit">Vender</button>
+                    </div>
+                </form>
+                <div class="container">
+                    <table class="table text-center table-hover">
+                        <thead class="cabecera">
+                          <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Producto</th>
+                            <th scope="col">Vendido</th>
+                            <th scope="col"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>3</td>
+                            <td> <button class="btn" type="button" data-bs-toggle="modal" data-bs-target="#ModalBorrar"><i class="bi bi-eraser-fill"></i></button></td>
+                          </tr>
+                          <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>4</td>
+                            <td> <button class="btn" type="button" data-bs-toggle="modal" data-bs-target="#ModalBorrar"><i class="bi bi-eraser-fill"></i></button></button></td>
+                          </tr>
+                          <tr>
+                            <th scope="row">3</th>
+                            <td>@twitter</td>
+                            <td>9</td>
+                            <td><button class="btn" type="button" data-bs-toggle="modal" data-bs-target="#ModalBorrar"><i class="bi bi-eraser-fill"></i></button></button></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Borrar -->
+<div class="modal fade" id="ModalBorrar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Borrar venta</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>¿Estás seguro de eliminar esta Venta? ¡esta acción no se puede deshacer!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btn-modal-cancelar"class="btn" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" id= "btn-modal-borrar"class="btn">Borrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+{% endblock %}

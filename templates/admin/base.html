@@ -24,7 +24,7 @@
         <!--PROFILE-->
         <div id="profile">
             <div id="photo"><img src="https://i.ibb.co/TT4CwBP/perfil.jpg" alt="perfil" border="0"></div>
-            <div id="name"><span>Username</span></div>
+            <div id="name"><span>{{ username }}</span></div>
         </div>
         <!--ITEMS-->
         <div id="menu-items">
@@ -53,7 +53,7 @@
                 </a>
             </div>
             <div class="item" id="topline">
-                <a href="{{url_for('login')}}">
+                <a href="{{url_for('logout')}}">
                     <div class="icon"><i class="bi bi-door-open"></i></i></div>
                     <div class="title"><span>Salir</span></div>
                 </a>

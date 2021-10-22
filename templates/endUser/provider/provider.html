@@ -1,0 +1,133 @@
+{% extends "endUser/base.html" %}
+
+{% block content %}
+<div class="container">
+  <div class="d-grid gap-2 d-md-flex">
+    <div>
+      <h2>PROVEEDORES</h2>
+    </div>
+    <div id="form_buscar_prod" class="ms-auto">
+      <form class="d-flex" method="post" action="" enctype="multipart/form-data" novalidate>
+      {% if form.search.errors %}
+      {{form.search(class="form-control me-2 is-invalid", type="search", placeholder="Search")}}
+      {% for error in form.search.errors %}
+       <span style="color: red">{{error}}</span>
+      {% endfor %}
+      {% else %}
+      {{form.search(class="form-control me-2", type="search", placeholder="Search")}}
+      {% endif %}
+        <button class="btn" type="submit"><i class="bi bi-search"></i></button>
+      </form>
+    </div>
+  </div>
+  <div>
+    <table class="table table-hover">
+      <thead class="cabecera">
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>728</td>
+          <td>TANG DM</td>
+          <td>Emilio Ballesros</td>
+          <td>
+            <button class="btn" type="button" data-bs-toggle="modal" data-bs-target="#ModalVer"><i class="bi bi-eye-fill"></i></button>
+            <a href="{{url_for('proveedores.editProvider')}}" class="btn"><i class="bi bi-pencil-square"></i></a>
+            <button class="btn" type="button" data-bs-toggle="modal" data-bs-target="#ModalBorrar"><i class="bi bi-eraser-fill"></i></button>
+          </td>
+        </tr>
+        <tr>
+          <td>496</td>
+          <td>YUAN EV</td>
+          <td>DN S.A.S</td>
+          <td>
+            <button class="btn" type="button" data-bs-toggle="modal" data-bs-target="#ModalVer"><i class="bi bi-eye-fill"></i></button>
+            <a href="{{url_for('proveedores.editProvider')}}" class="btn"><i class="bi bi-pencil-square"></i></a>
+            <button class="btn" type="button" data-bs-toggle="modal" data-bs-target="#ModalBorrar"><i class="bi bi-eraser-fill"></i></button>
+          </td>
+        </tr>
+        <tr>
+          <td>245</td>
+          <td>e3 HB</td>
+          <td>ImporBrake</td>
+          <td>
+            <button class="btn"type="button" data-bs-toggle="modal" data-bs-target="#ModalVer"><i class="bi bi-eye-fill"></i></button>
+            <a href="{{url_for('proveedores.editProvider')}}" class="btn"><i class="bi bi-pencil-square"></i></a>
+            <button class="btn" type="button" data-bs-toggle="modal" data-bs-target="#ModalBorrar"><i class="bi bi-eraser-fill"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  <div id="btn-space">
+    <div class="d-grid gap-1 d-md-flex justify-content-md-end">
+      <a class="btn" href="{{url_for('proveedores.addProvider')}}">Agregar Proveedor<i class="bi bi-truck"></i></a>
+    </div>
+  </div>
+<!-- Modal Borrar -->
+<div class="modal fade" id="ModalBorrar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Borrar proveedor</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>¿Estás seguro de eliminar este proveedor? ¡esta acción no se puede deshacer!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btn-modal-cancelar"class="btn" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" id= "btn-modal-borrar"class="btn">Borrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Ver -->
+<div class="modal fade" id="ModalVer" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <h5>Proveedor</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="mb-3 row ">
+            <label class="col-sm-2 col-form-label">ID</label>
+            <div class="col-sm-6">
+              <input type="text" readonly class="form-control-plaintext" value="1">
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Nombre</label>
+            <div class="col-sm-6">
+              <input type="text" readonly class="form-control-plaintext" value="Emilio Ballesros">
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Telefono</label>
+            <div class="col-sm-6">
+              <input type="text" readonly class="form-control-plaintext" value="300000155510">
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-6">
+              <input type="text" readonly class="form-control-plaintext" value="email@example.com">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btn-modal-cancelar"class="btn" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}

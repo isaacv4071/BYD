@@ -1,22 +1,23 @@
-{% extends "base.html" %}
+{% extends "endUser/base.html" %}
 
 {% block content %}
 <div class="container">
     <div class="text-center">
-        <h2>AGREGAR PRODUCTO</h2>
+        <h2>EDITAR PRODUCTO</h2>
     </div>
     <div id="contenedor-addproducto">
         <form method="post" action="" enctype="multipart/form-data" novalidate>
             <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label">Nombre</label>
                 <div class="col-sm-6">
+                    <!--                       <input type="text" class="form-control" required value="Joe Smith Doe"> -->
                     {% if form.name.errors %}
-                    {{form.name(class="form-control is-invalid")}}
+                    {{form.name(class="form-control is-invalid", value="nombreexample")}}
                     {% for error in form.name.errors %}
                     <span style="color: red">{{error}}</span>
                     {% endfor %}
                     {% else %}
-                    {{form.name(class="form-control")}}
+                    {{form.name(class="form-control", value="nombreexample")}}
                     {% endif %}
                 </div>
             </div>
@@ -30,12 +31,12 @@
                 <label class="col-sm-2 col-form-label">Cantidad mínima requerida en bodega</label>
                 <div class="col-sm-6">
                     {% if form.Minimumquantityrequired.errors %}
-                    {{form.Minimumquantityrequired(class="form-control is-invalid", type="number")}}
+                    {{form.Minimumquantityrequired(class="form-control is-invalid", type="number", value="9")}}
                     {% for error in form.Minimumquantityrequired.errors %}
                     <span style="color: red">{{error}}</span>
                     {% endfor %}
                     {% else %}
-                    {{form.Minimumquantityrequired(class="form-control", type="number")}}
+                    {{form.Minimumquantityrequired(class="form-control", type="number", value="9")}}
                     {% endif %}
                 </div>
             </div>
@@ -43,12 +44,12 @@
                 <label class="col-sm-2 col-form-label">Cantidad disponible en bodega</label>
                 <div class="col-sm-6">
                     {% if form.Quantityavailable.errors %}
-                    {{form.Quantityavailable(class="form-control is-invalid", type="number")}}
+                    {{form.Quantityavailable(class="form-control is-invalid", type="number", value="17")}}
                     {% for error in form.Quantityavailable.errors %}
                     <span style="color: red">{{error}}</span>
                     {% endfor %}
                     {% else %}
-                    {{form.Quantityavailable(class="form-control", type="number")}}
+                    {{form.Quantityavailable(class="form-control", type="number", value="17")}}
                     {% endif %}
                 </div>
             </div>
@@ -81,7 +82,7 @@
             <div id="btn-space-addProducto">
                 <div class="d-grid gap-2 d-md-flex justifi-center">
                     <a href="{{url_for('productos.product')}}" id="btnCancelar" class="btn me-md-2">Cancelar</a>
-                    <button id="btnAgregar" class="btn" type="submit">Agregar Producto<i
+                    <button id="btnAgregar" class="btn" type="submit">Editar Producto<i
                             class="bi-box-seam"></i></button>
                 </div>
             </div>

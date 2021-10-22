@@ -27,7 +27,7 @@ class UserForm(FlaskForm):
     Length(min=3, max=20, message="Su usuario debe tener mas de 3 caracteres")])
     password = PasswordField(label="Contraseña", validators=[DataRequired(message="No dejar vacío este campo"), 
     Length(min=6, max=20, message="Su contraseña debe tener minimo 6 caracteres")])
-    role = SelectField(label="role", choices=[(1,"Super Adminitrador"),
+    role = SelectField(label="role", choices=[(1,"Super Administrador"),
 							(2,"Administrador"),(3,"Usuario final")], default=3)
 
 class SearchForm(FlaskForm):
