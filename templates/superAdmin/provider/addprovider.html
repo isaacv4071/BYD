@@ -7,6 +7,20 @@
   </div>
   <div id="contenedor-addproveedor">
     <form method="post" action="" enctype="multipart/form-data" novalidate>
+      {{form.hidden_tag()}}
+      <div class="mb-3 row">
+        <label class="col-sm-1 col-form-label">NIT</label>
+        <div class="col-sm-6">
+          {% if form.nit.errors %}
+          {{form.nit(class="form-control is-invalid")}}
+          {% for error in form.nit.errors %}
+          <span style="color: red">{{error}}</span>
+          {% endfor %}
+          {% else %}
+          {{form.nit(class="form-control")}}
+          {% endif %}
+        </div>
+      </div>
       <div class="mb-3 row">
         <label class="col-sm-1 col-form-label">Nombres</label>
         <div class="col-sm-6">
@@ -62,7 +76,7 @@
       <div id="btn-space-addProvider">
         <div class="d-grid gap-2 d-md-flex justifi-center">
           <a href="{{url_for('proveedores.provider')}}" id="btnCancelar" class="btn me-md-2">Cancelar</a>
-          <button id="btnAgregar" class="btn" type="submit">Adicionar Proveedor<i class="bi bi-truck"></i></button>
+          <button type="submit" id="btnAgregar" class="btn">Adicionar Proveedor<i class="bi bi-truck"></i></button>
         </div>
       </div>
     </form>

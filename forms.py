@@ -34,6 +34,8 @@ class SearchForm(FlaskForm):
     search = StringField(label="Search", validators=[DataRequired(message="No dejar vacío este campo")])
 
 class ProviderForm(FlaskForm):
+    nit= StringField(label="NIT", validators=[DataRequired(message="No dejar vacío este campo"), 
+    Length(min=3, max=20, message="Su nit debe tener mas de 3 caracteres")])
     name= StringField(label="Nombres", validators=[DataRequired(message="No dejar vacío este campo"), 
     Length(min=3, max=20, message="Su nombre debe tener mas de 3 caracteres")])
     lastname = StringField(label="Apellidos", validators=[DataRequired(message="No dejar vacío este campo"), 

@@ -27,9 +27,9 @@ def user():
                 print("error in operation")
             finally:
                 con.close()
-
             return render_template('superAdmin/user/UsersPage.html', username = user, usuarios=usuarios)
-        else:
+
+        elif session['rol'] == 2:
             sql = "SELECT * FROM user_2 WHERE rol_3_idRol_3 = ?"
             try:
                 con = get_db()
@@ -41,8 +41,11 @@ def user():
                 print("error in operation")
             finally:
                 con.close()
-
             return render_template('admin/user/UsersPage.html', username = user, usuarios=usuarios)
+        
+        elif session['rol'] == 3:
+            return render_template('error.html') 
+
     else: 
         return render_template('error.html') 
 
@@ -76,9 +79,11 @@ def adduser():
         
         if session['rol'] == 1:
             return render_template('superAdmin/user/addUserPage.html', username = user, form = form)
-        else:
+        elif session['rol'] == 2:
             form.role.choices = [(3,'Usuario final')]
             return render_template('admin/user/addUserPage.html',username = user, form = form)
+        elif session['rol'] == 3:
+            return render_template('error.html')
     else:
         return render_template('error.html')
 
@@ -107,37 +112,43 @@ def edituser(id):
         form.lastname.data = usuario[3]
         form.Email.data = usuario[4]
         form.username.data = usuario[5]
-            
+
         if session['rol'] == 1:
             return render_template('superAdmin/user/editUser.html', username = user, form = form, usuario=usuario)
-        else:
+        elif session['rol'] == 2:
+            form.role.choices = [(3,'Usuario final')]
             return render_template('admin/user/editUser.html', username = user, form = form, usuario=usuario)
+        elif session['rol'] == 3:
+            return render_template('error.html')
     else:
         return render_template('error.html')
 
 
 @usuario.route("/usuario/update", methods=['POST'])
 def updates():
-    form = UserForm()
-    id = request.form['txtid']
-    name = escape(form.name.data)
-    lastname = escape(form.lastname.data)
-    Email = escape(form.Email.data)
-    username = escape(form.username.data)
-    role = escape(form.role.data)
-    sql = "UPDATE user_2 SET rol_3_idRol_3 =?, nameUser_2=?, lastNameUser_2=?, emailUser_2=?, usernameUser_2=? WHERE iduser_2 = ?"
-    datos = (role, name, lastname, Email, username, id)
-    try:
-        con = get_db()
-        cur = con.cursor()
-        cur.execute(sql, datos)
-        con.commit()
-    except:
-        con.rollback()
-        print("error in insert operation")
-    finally:
-        con.close()
-    return redirect('/usuarios')
+    if 'usuario' in session:
+        form = UserForm()
+        id = request.form['txtid']
+        name = escape(form.name.data)
+        lastname = escape(form.lastname.data)
+        Email = escape(form.Email.data)
+        username = escape(form.username.data)
+        role = escape(form.role.data)
+        sql = "UPDATE user_2 SET rol_3_idRol_3 =?, nameUser_2=?, lastNameUser_2=?, emailUser_2=?, usernameUser_2=? WHERE iduser_2 = ?"
+        datos = (role, name, lastname, Email, username, id)
+        try:
+            con = get_db()
+            cur = con.cursor()
+            cur.execute(sql, datos)
+            con.commit()
+        except:
+            con.rollback()
+            print("error in insert operation")
+        finally:
+            con.close()
+        return redirect('/usuarios')
+    else:
+        return render_template('error.html')
 
 #ruta para renderizar la pagina de usuario
 @usuario.route("/usuario/<int:id>", methods=['GET','POST'])
@@ -158,8 +169,10 @@ def viewuser(id):
 
         if session['rol'] == 1:
             return render_template('superAdmin/user/UserPage.html', username = user, usuario=usuario)
-        else:
+        elif session['rol'] == 2:
             return render_template('admin/user/UserPage.html', username = user, usuario=usuario)
+        elif session['rol'] == 3:
+            return render_template('error.html')
     else: 
         return render_template('error.html')
 
@@ -170,7 +183,7 @@ def destroy(id):
         try:
             con = get_db()
             cur = con.cursor()
-            usuario = cur.execute(sql, (id,))
+            cur.execute(sql, (id,))
             con.commit()
         except:
             con.rollback()

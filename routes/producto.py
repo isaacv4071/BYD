@@ -21,7 +21,7 @@ def product():
             else: 
                 return render_template('endUser/product/producto.html', form = form, username = user)
     else:
-        return "no valid"
+        return render_template('error.html')
 
 @productos.route("/productos/agregar",methods=['GET', 'POST'])
 def addproduct():
