@@ -19,32 +19,17 @@
       </tr>
     </thead>
     <tbody>
+      {% for usuario in usuarios %}
       <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+        <th scope="row">{{usuario[0]}}</th>
+        <td>{{usuario[2]}}</td>
+        <td>{{usuario[3]}}</td>
+        <td>{{usuario[5]}}</td>
         <td>
-          <a class="btn" href="{{url_for('usuario.viewuser')}}" ><i class="bi bi-eye-fill"></i></a>
+          <a class="btn" href="/usuario/{{usuario[0]}}" ><i class="bi bi-eye-fill"></i></a>
         </td>
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-        <td>
-          <a class="btn" href="{{url_for('usuario.viewuser')}}" ><i class="bi bi-eye-fill"></i></a>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-        <td>
-          <a class="btn" href="{{url_for('usuario.viewuser')}}" ><i class="bi bi-eye-fill"></i></a>
-        </td>
-      </tr>
+      {% endfor %}
     </tbody>
   </table>
   </div>

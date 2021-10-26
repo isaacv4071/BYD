@@ -1,0 +1,48 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+    <div class="container">
+        <div class="text-center">
+            <h2>PROVEEDOR</h2>
+        </div>
+        <div id="contenedor-addproducto">
+            <form method="post" action="/editarproductos" enctype="multipart/form-data">
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">NIT</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" value="{{proveedor[1]}}" readonly>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Nombres</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" value="{{proveedor[2]}}" readonly>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Apellidos</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" value="{{proveedor[3]}}" readonly>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Telefono</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" value="{{proveedor[4]}}" readonly>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" value="{{proveedor[5]}}" readonly>
+                      </div>
+                </div>
+                <div id="btn-space-addProducto">
+                    <div class="d-grid gap-1 d-md-flex justifi-center">
+                      <a href="{{url_for('proveedores.provider')}}" id="btnCancelar"class="btn me-md-2">Regresar</a>
+                    </div>
+                  </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

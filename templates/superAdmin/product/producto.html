@@ -6,14 +6,15 @@
     <div><h2>PRODUCTOS</h2></div>
     <div id="form_buscar_prod" class="ms-auto">
       <form class="d-flex" method="post" action="" enctype="multipart/form-data" novalidate>
-      {% if form.search.errors %}
+        {{form.hidden_tag()}}
+        {% if form.search.errors %}
         {{form.search(class="form-control me-2 is-invalid", type="search", placeholder="Search")}}
         {% for error in form.search.errors %}
           <span style="color: red">{{error}}</span>
         {% endfor %}
         {% else %}
-       {{form.search(class="form-control me-2", type="search", placeholder="Search")}}
-      {% endif %}
+        {{form.search(class="form-control me-2", type="search", placeholder="Search")}}
+        {% endif %}
         <button class="btn" type="submit"><i class="bi bi-search"></i></button>
       </form>
     </div>
@@ -30,39 +31,19 @@
         </tr>
       </thead>
       <tbody>
+        {% for producto in productos %}
         <tr>
-          <td>728</td>
-          <td><img class="img-thumbnail" width="50" src="https://i.ibb.co/bzWKhG1/caja.jpg" alt="caja"></td>
-          <td>TANG DM</td>
-          <td>Emilio Ballesros</td>
+          <td>{{producto[0]}}</td>
+          <td><img class="img-thumbnail" width="50" src="uploads/{{producto[1]}}" alt="caja"></td>
+          <td>{{producto[2]}}</td>
+          <td>{{producto[3]}}</td>
           <td>
-            <a class="btn" href="{{url_for('productos.viewproduct')}}"><i class="bi bi-eye-fill"></i></a>
-            <a class="btn" href="{{url_for('productos.editproduct')}}"><i class="bi bi-pencil-square"></i></a>
-            <button class="btn" type="button" data-bs-toggle="modal" data-bs-target="#ModalBorrar"><i class="bi bi-eraser-fill"></i></button>
+            <a class="btn" href="/producto/{{producto[0]}}"><i class="bi bi-eye-fill"></i></a>
+            <a class="btn" href="/productos/editar/{{producto[0]}}"><i class="bi bi-pencil-square"></i></a>
+            <a onclick="return confirm('¿Desea borrar el proveedor?')" class="btn" href="/producto/destroy/{{producto[0]}}"><i class="bi bi-eraser-fill"></i></a>
           </td>
         </tr>
-        <tr>
-          <td>496</td>
-          <td><img class="img-thumbnail" width="50" src="https://i.ibb.co/bzWKhG1/caja.jpg" alt="caja"></td>
-          <td>YUAN EV</td>
-          <td>DN S.A.S</td>
-          <td>
-            <a class="btn" href="{{url_for('productos.viewproduct')}}"><i class="bi bi-eye-fill"></i></a>
-            <a class="btn" href="{{url_for('productos.editproduct')}}"><i class="bi bi-pencil-square"></i></a>
-            <button class="btn" type="button" data-bs-toggle="modal" data-bs-target="#ModalBorrar"><i class="bi bi-eraser-fill"></i></button>
-          </td>
-        </tr>
-        <tr>
-          <td>245</td>
-          <td><img class="img-thumbnail" width="50" src="https://i.ibb.co/bzWKhG1/caja.jpg" alt="caja"></td>
-          <td>e3 HB</td>
-          <td>ImporBrake</td>
-          <td>
-            <a class="btn" href="{{url_for('productos.viewproduct')}}"><i class="bi bi-eye-fill"></i></a>
-            <a class="btn" href="{{url_for('productos.editproduct')}}" ><i class="bi bi-pencil-square"></i></a>
-            <button class="btn" type="button" data-bs-toggle="modal" data-bs-target="#ModalBorrar"><i class="bi bi-eraser-fill"></i></button>
-          </td>
-        </tr>
+        {% endfor %}
       </tbody>
     </table>
   </div>
@@ -75,22 +56,4 @@
   </div>
 </div>
 
-<!-- Modal Borrar -->
-<div class="modal fade" id="ModalBorrar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Borrar producto</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>¿Estás seguro de eliminar este producto? ¡esta acción no se puede deshacer!</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" id="btn-modal-cancelar"class="btn" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" id= "btn-modal-borrar"class="btn">Borrar</button>
-      </div>
-    </div>
-  </div>
-</div>
 {% endblock %}

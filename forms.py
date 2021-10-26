@@ -34,6 +34,8 @@ class SearchForm(FlaskForm):
     search = StringField(label="Search", validators=[DataRequired(message="No dejar vacío este campo")])
 
 class ProviderForm(FlaskForm):
+    nit= StringField(label="NIT", validators=[DataRequired(message="No dejar vacío este campo"), 
+    Length(min=3, max=20, message="Su nit debe tener mas de 3 caracteres")])
     name= StringField(label="Nombres", validators=[DataRequired(message="No dejar vacío este campo"), 
     Length(min=3, max=20, message="Su nombre debe tener mas de 3 caracteres")])
     lastname = StringField(label="Apellidos", validators=[DataRequired(message="No dejar vacío este campo"), 
@@ -45,7 +47,7 @@ class ProviderForm(FlaskForm):
 class ProductForm(FlaskForm):
     name = StringField(label="Product", validators=[DataRequired(message="No dejar vacío este campo"), 
     Length(min=3, max=20, message="El nombre del producto debe tener mas de 3 caracteres")])
-    provider = SelectField(label="Provider", choices=[(1,'Seleccionar'),(2, 'prooveedor1'), (3, 'prooveedor2'), (4, 'prooveedor3')], default=1)
+    provider = SelectField(label="Provider")
     Minimumquantityrequired = IntegerField(label="Valor", validators=[DataRequired(message="No dejar vacío este campo")])
     Quantityavailable= IntegerField(label="Quantity", validators=[DataRequired(message="No dejar vacío este campo")])
     Description = TextAreaField('message', validators=[DataRequired()])

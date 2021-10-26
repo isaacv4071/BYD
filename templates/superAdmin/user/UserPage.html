@@ -7,7 +7,7 @@
     <div id="cabecera-userPage" class="d-grid gap-3 d-md-flex">
         <div style="color: #0d2935; font-family: 'Roboto', sans-serif;"><h2>USER</h2></div>
         <div class="ms-auto">
-          <a href="{{url_for('usuario.edituser')}}" class="btn btn-primary rounded-pill" style="background-color: rgba(8, 83, 115, 1)">
+          <a href="/usuario/editar/{{usuario[0]}}" class="btn btn-primary rounded-pill" style="background-color: rgba(8, 83, 115, 1)">
             Editar
             <i class="bi bi-pencil-square"></i>
           </a>
@@ -23,31 +23,31 @@
     <div style="padding-left: 40px; padding-bottom: 40px;">
       <div class="row ">
         <div class="col-2"> Nombres</div>
-        <div class="col-10">Jhon</div>
+        <div class="col-10">{{usuario[2]}}</div>
       </div>
     </div>
     <div style="padding-left: 40px; padding-bottom: 40px;">
       <div class="row ">
         <div class="col-2">Apellidos</div>
-        <div class="col-10">Doe</div>
+        <div class="col-10">{{usuario[3]}}</div>
       </div>
     </div>
     <div style="padding-left: 40px; padding-bottom: 40px;">
       <div class="row ">
         <div class="col-2">Email</div>
-        <div class="col-10">JhonDoe99@mail.com</div>
+        <div class="col-10">{{usuario[4]}}</div>
       </div>
     </div>
     <div style="padding-left: 40px; padding-bottom: 40px;">
       <div class="row ">
         <div class="col-2"> Usuario</div>
-        <div class="col-10">JhonDoe99</div>
+        <div class="col-10">{{usuario[5]}}</div>
       </div>
     </div>
     <div style="padding-left: 40px; padding-bottom: 40px;">
       <div class="row ">
         <div class="col-2">Rol</div>
-        <div class="col-10">SuperAdmin</div>
+        <div class="col-10">{{usuario[8]}}</div>
       </div>
     </div>
   </div>
@@ -67,7 +67,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" id="btn-modal-cancelar"class="btn" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" id= "btn-modal-borrar"class="btn">Borrar</button>
+        <a href="/usuario/destroy/{{usuario[0]}}" id= "btn-modal-borrar"class="btn">Borrar</a>
       </div>
     </div>
   </div>
