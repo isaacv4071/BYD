@@ -6,7 +6,8 @@
         <h2>AGREGAR PRODUCTO</h2>
     </div>
     <div id="contenedor-addproducto">
-        <form method="post" action="" enctype="multipart/form-data" novalidate>
+        <form method="post" action="/store" enctype="multipart/form-data" novalidate>
+            {{form.hidden_tag()}}
             <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label">Nombre</label>
                 <div class="col-sm-6">
@@ -68,14 +69,7 @@
             <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label">Foto</label>
                 <div class="col-sm-6">
-                    {% if form.photo.errors %}
-                    {{form.photo(class="form-control is-invalid")}}
-                    {% for error in form.photo.errors %}
-                    <span style="color: red">{{error}}</span>
-                    {% endfor %}
-                    {% else %}
-                    {{form.photo(class="form-control")}}
-                    {% endif %}
+                    <input class="form-control" type="file" name="txtFoto">
                 </div>
             </div>
             <div id="btn-space-addProducto">

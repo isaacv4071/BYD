@@ -7,7 +7,7 @@
         <div id="contenedor-inventario">
             <h5 class="text-center">Registrar Venta</h5>
             <div class="form-inventario">
-                <form method="post" action="" enctype="multipart/form-data" novalidate>
+                <form method="post" action="/venta" enctype="multipart/form-data" novalidate>
                   {{form.hidden_tag()}}
                     <div class="row g-2">
                         <div class="col-auto">
@@ -39,48 +39,19 @@
                           </tr>
                         </thead>
                         <tbody>
+                          {% for venta in ventas %}
                           <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>3</td>
-                            <td> <button class="btn" type="button" data-bs-toggle="modal" data-bs-target="#ModalBorrar"><i class="bi bi-eraser-fill"></i></button></td>
+                            <th scope="row">{{venta[0]}}</th>
+                            <td>{{venta[1]}}</td>
+                            <td>{{venta[2]}}</td>
+                            <td> <a href="#" class="btn" type="button"><i class="bi bi-eraser-fill"></i></a></td>
                           </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>4</td>
-                            <td> <button class="btn" type="button" data-bs-toggle="modal" data-bs-target="#ModalBorrar"><i class="bi bi-eraser-fill"></i></button></button></td>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td>@twitter</td>
-                            <td>9</td>
-                            <td><button class="btn" type="button" data-bs-toggle="modal" data-bs-target="#ModalBorrar"><i class="bi bi-eraser-fill"></i></button></button></td>
-                          </tr>
+                          {% endfor %}
                         </tbody>
                       </table>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Modal Borrar -->
-<div class="modal fade" id="ModalBorrar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Borrar venta</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>¿Estás seguro de eliminar esta Venta? ¡esta acción no se puede deshacer!</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" id="btn-modal-cancelar"class="btn" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" id= "btn-modal-borrar"class="btn">Borrar</button>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
 
 {% endblock %}

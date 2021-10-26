@@ -13,6 +13,28 @@ def provider():
     if 'usuario' in session:
         form = SearchForm()
         user = session['usuario']
+        proveedores =""
+        if form.validate_on_submit():
+            search = escape(form.search.data)
+            sql = "SELECT * FROM vendors_5 WHERE nameVendor_5 LIKE ?"
+            try:
+                con = get_db()
+                cur = con.cursor()
+                proveedores = cur.execute(sql, (search+"%",)).fetchall()
+                con.commit()
+            except:
+                con.rollback()
+                print("error in operation")
+            finally:
+                con.close() 
+
+            if session['rol'] == 1:
+                return render_template('superAdmin/provider/provider.html', form = form, username = user, proveedores=proveedores)
+            elif session['rol'] == 2: 
+                return render_template('admin/provider/provider.html', form = form, username = user, proveedores=proveedores)
+            else:
+                return render_template('enduser/provider/provider.html', form = form, username = user, proveedores=proveedores)
+
         sql = "SELECT * FROM vendors_5"
         try:
             con = get_db()
