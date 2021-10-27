@@ -8,6 +8,7 @@
     </div>
     <div id="form_buscar_prod" class="ms-auto">
       <form class="d-flex" method="post" action="" enctype="multipart/form-data" novalidate>
+      {{form.hidden_tag()}}
       {% if form.search.errors %}
       {{form.search(class="form-control me-2 is-invalid", type="search", placeholder="Search")}}
       {% for error in form.search.errors %}

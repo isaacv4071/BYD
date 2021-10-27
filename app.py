@@ -76,6 +76,7 @@ def destroy(id):
         fila = cur.fetchall()
         os.remove(os.path.join(app.config['CARPETA'], fila[0][0]))
         cur.execute("DELETE FROM products_4 WHERE idProducts_4 = ?", (id,))
+        cur.execute("DELETE FROM productVendor_6 WHERE products_4_idProducts_4 = ?", (id,))
         con.commit()
     except:
         con.rollback()
@@ -104,7 +105,7 @@ def login():
                     session['rol'] = rol
                     return redirect(url_for('inventario.inventory'))
                 else:
-                    flash('Invalid password')
+                    flash('Contraseña incorrecta')
             else:
                 flash('El usuario no esta registrado')
         except:
