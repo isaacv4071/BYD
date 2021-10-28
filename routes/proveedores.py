@@ -33,7 +33,7 @@ def provider():
             elif session['rol'] == 2: 
                 return render_template('admin/provider/provider.html', form = form, username = user, proveedores=proveedores)
             else:
-                return render_template('enduser/provider/provider.html', form = form, username = user, proveedores=proveedores)
+                return render_template('endUser/provider/provider.html', form = form, username = user, proveedores=proveedores)
 
         sql = "SELECT * FROM vendors_5"
         try:
@@ -52,7 +52,7 @@ def provider():
         elif session['rol'] == 2: 
             return render_template('admin/provider/provider.html', form = form, username = user, proveedores=proveedores)
         else:
-            return render_template('enduser/provider/provider.html', form = form, username = user, proveedores=proveedores)
+            return render_template('endUser/provider/provider.html', form = form, username = user, proveedores=proveedores)
     else:
         return render_template('error.html')
 

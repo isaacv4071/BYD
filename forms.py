@@ -54,3 +54,8 @@ class ProductForm(FlaskForm):
     photo = FileField(validators=[FileRequired(message="Por favor suba una foto")])
 
 
+class change_passwordForm(FlaskForm):
+    password = PasswordField(label="contraseña", validators=[DataRequired(message="No dejar vacío este campo"), 
+    Length(min=6, max=20, message="Su contraseña debe tener minimo 6 caracteres")])
+    confirmpassword = PasswordField(label="contraseña", validators=[DataRequired(message="No dejar vacío este campo"), 
+    Length(min=6, max=20, message="Su contraseña debe tener minimo 6 caracteres")])
