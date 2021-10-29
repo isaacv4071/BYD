@@ -27,6 +27,7 @@
           <th>Foto</th>
           <th>Producto</th>
           <th>Proveedor</th>
+          <th>Calificación</th>
           <th></th>
         </tr>
       </thead>
@@ -37,10 +38,16 @@
           <td><img class="img-thumbnail" width="50" src="uploads/{{producto[1]}}" alt="caja"></td>
           <td>{{producto[2]}}</td>
           <td>{{producto[3]}}</td>
+          <td>{% for x in range(producto[4]) %}
+            <div class="ec-stars-wrapper">
+              <a href="#">&#9733;</a>
+            </div>
+            {% endfor %}
+          </td>
           <td>
             <a class="btn" href="/producto/{{producto[0]}}"><i class="bi bi-eye-fill"></i></a>
             <a class="btn" href="/productos/editar/{{producto[0]}}"><i class="bi bi-pencil-square"></i></a>
-            <a onclick="return confirm('¿Desea borrar el proveedor?')" class="btn" href="/producto/destroy/{{producto[0]}}"><i class="bi bi-eraser-fill"></i></a>
+            <a onclick="return confirm('¿Desea borrar el producto?')" class="btn" href="/producto/destroy/{{producto[0]}}"><i class="bi bi-eraser-fill"></i></a>
           </td>
         </tr>
         {% endfor %}

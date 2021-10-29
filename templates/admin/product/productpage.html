@@ -6,7 +6,7 @@
             <h2>PRODUCTO</h2>
         </div>
         <div id="contenedor-addproducto">
-            <form method="post" action="/editarproductos" enctype="multipart/form-data">
+            <form method="post" action="" enctype="multipart/form-data">
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label">Nombre</label>
                     <div class="col-sm-6">
@@ -41,6 +41,15 @@
                     <label class="col-sm-2 col-form-label">Foto</label>
                     <div class="col-sm-6">
                         <img class="img-thumbnail" width="100" src="{{url_for('productos.uploads', nombreFoto=producto[5])}}" alt="producto">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="ec-stars-wrapper">
+                        <a href="/productos/rating/1" data-value="1" title="Votar con 1 estrellas">&#9733;</a>
+                        <a href="/productos/rating/2" data-value="2" title="Votar con 2 estrellas">&#9733;</a>
+                        <a href="/productos/rating/3" data-value="3" title="Votar con 3 estrellas">&#9733;</a>
+                        <a href="/productos/rating/4" data-value="4" title="Votar con 4 estrellas">&#9733;</a>
+                        <a href="/productos/rating/5" data-value="5" title="Votar con 5 estrellas">&#9733;</a>
                     </div>
                 </div>
                 <div id="btn-space-addProducto">

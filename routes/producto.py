@@ -17,7 +17,7 @@ def product():
         productos =""
         if form.validate_on_submit():
             search = escape(form.search.data)
-            sql = "SELECT idProducts_4,photoProduct_4,nameProduct_4,nameVendor_5 FROM products_4, productVendor_6, vendors_5 WhERE nameProduct_4 LIKE ? AND idProducts_4 = products_4_idProducts_4 AND vendors_5_idVendors_5 = idVendors_5;"
+            sql = "SELECT idProducts_4,photoProduct_4,nameProduct_4,nameVendor_5,rating_4 FROM products_4, productVendor_6, vendors_5 WhERE nameProduct_4 LIKE ? AND idProducts_4 = products_4_idProducts_4 AND vendors_5_idVendors_5 = idVendors_5;"
             try:
                 con = get_db()
                 cur = con.cursor()
@@ -36,7 +36,7 @@ def product():
             else: 
                 return render_template('endUser/product/producto.html', form = form, username = user, productos=productos)
 
-        sql = "SELECT idProducts_4,photoProduct_4,nameProduct_4,nameVendor_5 FROM products_4, productVendor_6, vendors_5 WhERE idProducts_4 = products_4_idProducts_4 AND vendors_5_idVendors_5 = idVendors_5;"
+        sql = "SELECT idProducts_4,photoProduct_4,nameProduct_4,nameVendor_5,rating_4 FROM products_4, productVendor_6, vendors_5 WhERE idProducts_4 = products_4_idProducts_4 AND vendors_5_idVendors_5 = idVendors_5;"
         try:
             con = get_db()
             cur = con.cursor()
@@ -88,7 +88,8 @@ def addproduct():
 def viewproduct(id):
     if 'usuario' in session:
         user = session['usuario']
-        sql = "SELECT nameProduct_4,nameVendor_5,minimumQuantity_4,availableQuantity_4,descriptionProduct_4, photoProduct_4 FROM products_4,productVendor_6,vendors_5 WHERE idProducts_4 =? AND idProducts_4 = products_4_idProducts_4 AND vendors_5_idVendors_5 = idVendors_5 ;"
+        session['idproduct'] = id
+        sql = "SELECT nameProduct_4,nameVendor_5,minimumQuantity_4,availableQuantity_4,descriptionProduct_4, photoProduct_4,idProducts_4 FROM products_4,productVendor_6,vendors_5 WHERE idProducts_4 =? AND idProducts_4 = products_4_idProducts_4 AND vendors_5_idVendors_5 = idVendors_5 ;"
         try:
             con = get_db()
             cur = con.cursor()
@@ -193,7 +194,7 @@ def list():
 
         if form.validate_on_submit():
             search = escape(form.search.data)
-            sql = "SELECT idProducts_4,photoProduct_4,nameProduct_4,nameVendor_5 FROM products_4, productVendor_6, vendors_5 WhERE nameProduct_4 LIKE ? AND idProducts_4 = products_4_idProducts_4 AND vendors_5_idVendors_5 = idVendors_5;"
+            sql = "SELECT idProducts_4,photoProduct_4,nameProduct_4,nameVendor_5,rating_4 FROM products_4, productVendor_6, vendors_5 WhERE nameProduct_4 LIKE ? AND idProducts_4 = products_4_idProducts_4 AND vendors_5_idVendors_5 = idVendors_5;"
             try:
                 con = get_db()
                 cur = con.cursor()
@@ -212,7 +213,7 @@ def list():
             else: 
                 return render_template('endUser/product/producto.html', form = form, username = user, productos=productos)
 
-        sql = "SELECT idProducts_4,photoProduct_4,nameProduct_4,nameVendor_5 FROM products_4, productVendor_6, vendors_5 WhERE availableQuantity_4 < minimumQuantity_4 AND idProducts_4 = products_4_idProducts_4 AND vendors_5_idVendors_5 = idVendors_5;"
+        sql = "SELECT idProducts_4,photoProduct_4,nameProduct_4,nameVendor_5,rating_4 FROM products_4, productVendor_6, vendors_5 WhERE availableQuantity_4 < minimumQuantity_4 AND idProducts_4 = products_4_idProducts_4 AND vendors_5_idVendors_5 = idVendors_5;"
         try:
             con = get_db()
             cur = con.cursor()
@@ -230,6 +231,26 @@ def list():
             return render_template('admin/product/producto.html', form = form, username = user, productos=productos)
         else: 
             return render_template('endUser/product/producto.html', form = form, username = user, productos=productos)
+    else:
+        return render_template("error.html")
+
+@productos.route("/productos/rating/<int:rating>",methods=['POST', 'GET'])
+def reting(rating):
+    if 'usuario' in session:
+        sql="UPDATE products_4 SET rating_4=? WHERE idProducts_4 =?"
+        data = (rating, session['idproduct'])
+        try:
+            con = get_db()
+            cur = con.cursor()
+            cur.execute(sql, data)
+            con.commit()
+        except:
+            con.rollback()
+            print("error in operation")
+        finally:
+            con.close()
+        session.pop('idproduct', None)
+        return redirect('/productos')
     else:
         return render_template("error.html")
 """ @♥ """
