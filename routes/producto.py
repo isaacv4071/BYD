@@ -126,7 +126,7 @@ def store():
             nuevoNombreFoto=tiempo+_foto.filename #se da el nuevo nombre de la foto
             _foto.save('uploads/'+nuevoNombreFoto)
         datos = (name, Minimumquantityrequired,Quantityavailable, Description, nuevoNombreFoto)
-        sql = "INSERT INTO products_4 (idProducts_4,nameProduct_4,minimumQuantity_4,availableQuantity_4,descriptionProduct_4,photoProduct_4) VALUES (NULL,?,?,?,?,?);"
+        sql = "INSERT INTO products_4 (idProducts_4,nameProduct_4,minimumQuantity_4,availableQuantity_4,descriptionProduct_4,photoProduct_4,rating_4) VALUES (NULL,?,?,?,?,?,1);"
         sql1 = "SELECT * FROM products_4 WHERE idProducts_4 = (SELECT MAX(idProducts_4) FROM products_4);"
         sql2 = "INSERT INTO productVendor_6 (products_4_idProducts_4, vendors_5_idVendors_5) VALUES (?,?);"
         try:
